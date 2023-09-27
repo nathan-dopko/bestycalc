@@ -33,7 +33,7 @@ export const BestyCalcR = () => {
         cost += consumed * price;
         breakdown[from] = consumed;
         remainingListings -= consumed;
-      } //tesing
+      }
     }
 
     setTotalCost(remainingListings > 0 ? "Contact Us" : isYearly ? cost * 12 : cost);
