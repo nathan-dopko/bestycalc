@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BestyCalcR</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="calculatorWrapper">
+      <div class="headerWrapper">
+        <div class="title">BestyCalcR</div>
+        <button id="switchButton">Switch to Yearly</button>
+      </div>
+      <div class="inputWrapper">
+        <input type="number" id="listingInput" class="listingInput" />
+        <button id="calcButton" class="calcButton">Calculate</button>
+      </div>
+      <div id="resultWrapper" class="resultWrapper">Monthly Cost:</div>
+      <div id="avgListingCost">Avg Listing Cost:</div>
+      <table class="pricingTable">
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Monthly Cost Per Listing</th>
+            <th>My Listing Count</th>
+          </tr>
+        </thead>
+        <tbody id="pricingTableBody"></tbody>
+      </table>
+    </div>
+    <script src="BestyCalcVanilla.js"></script>
+  </body>
+</html>

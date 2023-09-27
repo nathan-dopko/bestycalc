@@ -1,0 +1,49 @@
+.calculatorWrapper {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+  background-color: #f4f4f4;
+  margin: 200px;
+  border-radius: 16px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.listingInput {
+  width: 40px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  text-align: center;
+}
+
+.headerWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calcButton {
+  width: 100px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: #37b7e5;
+  padding: 4px 8px;
+  text-align: center;
+  cursor: pointer;
+}
