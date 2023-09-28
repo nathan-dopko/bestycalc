@@ -42,7 +42,7 @@ export const BestyCalcR = () => {
         remainingListings -= consumed;
       }
     }
-    setTotalCost(remainingListings > 0 ? "Contact Us" : isYearly ? cost * 12 : cost);
+    setTotalCost(remainingListings > 0 ? "Contact Us" : isYearly ? cost * 0.85 : cost);
     setListingBreakdown(breakdown);
     if (listings > 0) {
       setAvgCost(isYearly ? (cost / listings) * 12 : cost / listings);
@@ -67,7 +67,7 @@ export const BestyCalcR = () => {
           value={listings === null ? "" : listings}
           onChange={(e) => setListings(e.target.value === "" ? null : Number(e.target.value))}
           className="listingInput"
-          placeholder="Enter listing count"
+          placeholder="Enter Listing Count"
         />
       </div>
       <table className="pricingTable">
@@ -82,20 +82,30 @@ export const BestyCalcR = () => {
         <tbody>
           {pricingData.map((row, index) => (
             <tr key={index}>
-              <td>{row.from === 500 ? "500+" : `${row.from} - ${row.to}`}</td>
-              <td>{row.cost}</td>
-              <td>{listings > 500 && row.from === 500 ? "Contact Us" : listingBreakdown[row.from] || "-"}</td>
-              <td>{listings > 500 && row.from === 500 ? "Contact Us" : listingBreakdown[row.from] ? `$${listingBreakdown[row.from] * row.price}` : "-"}</td>
+              <td className="tableData">{row.from === 500 ? "500+" : `${row.from} - ${row.to}`}</td>
+              <td className="tableData">{row.cost}</td>
+              <td className="tableData">{listings > 500 && row.from === 500 ? "Contact Us" : listingBreakdown[row.from] || "-"}</td>
+              <td className="tableData">{listings > 500 && row.from === 500 ? "Contact Us" : listingBreakdown[row.from] ? `$${listingBreakdown[row.from] * row.price}` : "-"}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <div className="contentWrapper">
-        <div className="avgListings">
-          Monthly Cost: {totalCost ? (listings > 500 ? "Contact Us" : totalCost === "Contact Us" ? totalCost : `$${totalCost.toLocaleString()}`) : "$0"}
-        </div>
-        <div className="avgListings">Avg Listing Cost: {avgCost ? (listings > 500 ? "Contact Us" : `$${avgCost.toFixed(2)}`) : "0"}</div>
+        {listings > 500 ? (
+          <a className="contactUsBtn" href="https://calendly.com/samfrombloom/intro-to-besty-ai" target="_blank" rel="noreferrer">
+            Contact Us
+          </a>
+        ) : (
+          <div className="avgListings">Avg Listing Cost: ${avgCost ? (listings > 500 ? "Contact Us" : `${avgCost.toFixed(2)}`) : "0"}</div>
+        )}
+        {listings > 500 ? null : (
+          <div className="avgListings">
+            Monthly Cost: {totalCost ? (listings > 500 ? "Contact Us" : totalCost === "Contact Us" ? totalCost : `$${totalCost.toLocaleString()}`) : "$0"}
+            {isYearly ? <div className="discountLabel">15% off Yearly</div> : null}
+          </div>
+        )}
       </div>
+      <div className="freeTrialButton">Start 14-day free trial</div>
     </div>
   );
 };

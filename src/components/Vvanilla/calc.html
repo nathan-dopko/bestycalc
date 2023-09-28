@@ -2,32 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>BestyCalcR</title>
+    <title>Pricing Calculator</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="calculatorWrapper">
-      <div class="headerWrapper">
-        <div class="title">BestyCalcR</div>
-        <button id="switchButton">Switch to Yearly</button>
+    <div id="calculatorWrapper" class="calculatorWrapper">
+      <div id="headerWrapper" class="headerWrapper">
+        <div id="title" class="title">Pricing Calculator</div>
+        <button id="yearlySwapBtn" class="yearlySwapBtn">Switch to Yearly</button>
       </div>
-      <div class="inputWrapper">
-        <input type="number" id="listingInput" class="listingInput" />
-        <button id="calcButton" class="calcButton">Calculate</button>
+      <div id="inputWrapper" class="inputWrapper">
+        <input id="listingInput" class="listingInput" placeholder="Enter Listing Count" />
       </div>
-      <div id="resultWrapper" class="resultWrapper">Monthly Cost:</div>
-      <div id="avgListingCost">Avg Listing Cost:</div>
-      <table class="pricingTable">
+      <table id="pricingTable" class="pricingTable">
         <thead>
           <tr>
-            <th>From</th>
-            <th>To</th>
-            <th>Monthly Cost Per Listing</th>
-            <th>My Listing Count</th>
+            <th>Listings</th>
+            <th>Cost/Listing</th>
+            <th>My Listings</th>
+            <th>My Cost</th>
           </tr>
         </thead>
-        <tbody id="pricingTableBody"></tbody>
+        <tbody id="tableBody"></tbody>
       </table>
+      <div id="contentWrapper" class="contentWrapper">
+        <div id="avgListings" class="avgListings">Avg Listing Cost: $0</div>
+        <div id="totalCost" class="avgListings">Monthly Cost: $0</div>
+      </div>
+      <div id="freeTrialButton" class="freeTrialButton">Start 14-day free trial</div>
     </div>
     <script src="BestyCalcVanilla.js"></script>
   </body>
