@@ -8,6 +8,8 @@
   margin: 200px;
   border-radius: 16px;
   gap: 8px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .inputWrapper {
@@ -33,8 +35,9 @@
 
 .title {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
+  color: #182243;
 }
 
 .pricingTable {
@@ -158,4 +161,15 @@ input[type="number"] {
 
 .tableData {
   text-align: center;
+}
+
+.logoWrapper {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: 100%;
 }

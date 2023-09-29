@@ -16,19 +16,43 @@ document.addEventListener("DOMContentLoaded", () => {
     { from: 500, to: "", cost: "Contact Us", price: null },
   ];
 
+  const specialButton = document.createElement("a");
+  specialButton.id = "ContactUs";
+  specialButton.textContent = "Contact Us";
+
   const tableBody = document.getElementById("tableBody");
+  const commonParent = document.getElementById("commonParent");
+  const avgListings = document.getElementById("avgListings");
+  const totalCostElem = document.getElementById("totalCost");
+
   pricingData.forEach((row, index) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${row.from === 500 ? "500+" : `${row.from} - ${row.to}`}</td>
       <td>${row.cost}</td>
-      <td id="myListings${row.from}">-</td>
-      <td id="myCost${row.from}">-</td>
+      <td id="myListings${row.from}">${row.from === 500 && listings > 500 ? "Contact Us" : "-"}</td>
+      <td id="myCost${row.from}">${row.from === 500 && listings > 500 ? "Contact Us" : "-"}</td>
     `;
     tableBody.appendChild(tr);
   });
 
+  const resetTable = () => {
+    pricingData.forEach((row) => {
+      document.getElementById(`myListings${row.from}`).textContent = "-";
+      document.getElementById(`myCost${row.from}`).textContent = "-";
+    });
+
+    document.getElementById("avgListings").textContent = "Avg Listing Cost: 0";
+    document.getElementById("totalCost").textContent = "Monthly Cost: $0";
+  };
+
   const calculateCostAndBreakdown = () => {
+    resetTable();
+
+    if (listings === null) {
+      return;
+    }
+
     let cost = 0;
     let remainingListings = listings || 0;
     let breakdown = {};
@@ -55,8 +79,21 @@ document.addEventListener("DOMContentLoaded", () => {
         : "-";
     });
 
-    document.getElementById("avgListings").textContent = `Avg Listing Cost: ${avgCost ? avgCost.toFixed(2) : "0"}`;
-    document.getElementById("totalCost").textContent = `Monthly Cost: ${totalCost ? totalCost : "$0"}`;
+    if (listings > 500) {
+      commonParent.appendChild(specialButton);
+      avgListings.style.display = "none";
+      totalCostElem.style.display = "none";
+    } else {
+      if (commonParent.contains(specialButton)) {
+        commonParent.removeChild(specialButton);
+        commonParent.style.display = "none";
+      }
+
+      commonParent.style.display = "none";
+
+      avgListings.textContent = `Avg Listing Cost: ${avgCost ? avgCost.toFixed(2) : "0"}`;
+      totalCostElem.textContent = `Monthly Cost: ${totalCost ? totalCost : "$0"}`;
+    }
   };
 
   document.getElementById("yearlySwapBtn").addEventListener("click", () => {

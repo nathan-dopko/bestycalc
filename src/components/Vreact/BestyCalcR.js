@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
+import logo from "./logo.png";
 
 export const BestyCalcR = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -45,7 +46,7 @@ export const BestyCalcR = () => {
     setTotalCost(remainingListings > 0 ? "Contact Us" : isYearly ? cost * 0.85 : cost);
     setListingBreakdown(breakdown);
     if (listings > 0) {
-      setAvgCost(isYearly ? (cost / listings) * 12 : cost / listings);
+      setAvgCost(cost / listings);
     }
   };
 
@@ -55,6 +56,9 @@ export const BestyCalcR = () => {
 
   return (
     <div className="calculatorWrapper">
+      <div className="logoWrapper">
+        <img src={logo} alt="logo" className="logo" />
+      </div>
       <div className="headerWrapper">
         <div className="title">Pricing Calculator</div>
         <button onClick={() => setIsYearly(!isYearly)} className="yearlySwapBtn">
