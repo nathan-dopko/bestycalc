@@ -46,7 +46,7 @@ export const BestyCalcR = () => {
     setTotalCost(remainingListings > 0 ? "Contact Us" : isYearly ? cost * 0.85 : cost);
     setListingBreakdown(breakdown);
     if (listings > 0) {
-      setAvgCost(cost / listings);
+      setAvgCost(isYearly ? (cost / listings) * 0.85 : cost / listings);
     }
   };
 
@@ -109,7 +109,9 @@ export const BestyCalcR = () => {
           </div>
         )}
       </div>
-      <div className="freeTrialButton">Start 14-day free trial</div>
+      <a className="freeTrialButton" href="http://app.getbesty.ai/signup" target="_blank" rel="noreferrer">
+        Start 14-day free trial
+      </a>
     </div>
   );
 };
