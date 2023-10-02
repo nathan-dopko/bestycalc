@@ -3,13 +3,12 @@
   height: fit-content;
   display: flex;
   flex-direction: column;
-  padding: 60px;
+  padding: 40px 60px;
   background-color: #f4f4f4;
   border-radius: 16px;
   gap: 8px;
-  padding-top: 40px;
-  padding-bottom: 40px;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 auto;
 }
 
 .inputWrapper {
@@ -179,4 +178,72 @@ input[type="number"] {
 
 .logo {
   height: 100%;
+  width: auto;
+}
+
+@media (max-width: 470px) {
+  .calculatorWrapper {
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0);
+    padding: 30px;
+  }
+
+  .headerWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .yearlySwapBtn {
+    width: 100%;
+  }
+  .inputWrapper {
+  }
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    gap: 8px;
+  }
+
+  .contactUsBtn {
+    width: auto;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    background-color: #2b99ff;
+    padding: 4px 8px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .avgListings {
+    width: auto;
+  }
+
+  .pricingTable {
+    font-size: 13px;
+  }
+
+  .freeTrialButton {
+    margin: 0;
+    width: auto;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    background-color: #2b99ff;
+    padding: 4px 8px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+  }
 }

@@ -88,8 +88,8 @@ export const BestyCalcR = () => {
             <tr key={index}>
               <td className="tableData">{row.from === 500 ? "500+" : `${row.from} - ${row.to}`}</td>
               <td className="tableData">{row.cost}</td>
-              <td className="tableData">{listings > 500 && row.from === 500 ? "Contact Us" : listingBreakdown[row.from] || "-"}</td>
-              <td className="tableData">{listings > 500 && row.from === 500 ? "Contact Us" : listingBreakdown[row.from] ? `$${listingBreakdown[row.from] * row.price}` : "-"}</td>
+              <td className="tableData">{listings > 500 && row.from === 500 ? "-" : listingBreakdown[row.from] || "-"}</td>
+              <td className="tableData">{listings > 500 && row.from === 500 ? "-" : listingBreakdown[row.from] ? `$${listingBreakdown[row.from] * row.price}` : "-"}</td>
             </tr>
           ))}
         </tbody>
