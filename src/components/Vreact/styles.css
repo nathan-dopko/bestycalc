@@ -3,12 +3,11 @@
   height: fit-content;
   display: flex;
   flex-direction: column;
-  padding: 40px 60px;
+  padding: 40px;
   background-color: #f4f4f4;
   border-radius: 16px;
   gap: 8px;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
-  margin: 0 auto;
 }
 
 .inputWrapper {
@@ -36,7 +35,7 @@
   font-size: 24px;
   font-weight: 700;
   white-space: nowrap;
-  color: #182243;
+  color: #2b99ff;
 }
 
 .pricingTable {
@@ -167,6 +166,8 @@ input[type="number"] {
 
 .tableData {
   text-align: center;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .logoWrapper {

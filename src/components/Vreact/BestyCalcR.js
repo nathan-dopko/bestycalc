@@ -56,9 +56,9 @@ export const BestyCalcR = () => {
 
   return (
     <div className="calculatorWrapper">
-      <div className="logoWrapper">
+      {/* <div className="logoWrapper">
         <img src={logo} alt="logo" className="logo" />
-      </div>
+      </div> */}
       <div className="headerWrapper">
         <div className="title">Pricing Calculator</div>
         <button onClick={() => setIsYearly(!isYearly)} className="yearlySwapBtn">
