@@ -64,6 +64,8 @@
 @media (max-width: 550px) {
   .card {
     padding: 30px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .featuresList {
     width: 100%;

@@ -1,5 +1,7 @@
 .calculatorWrapper {
+  max-width: 520px;
   width: 520px;
+  box-sizing: border-box;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -85,6 +87,7 @@ input[type="number"] {
   background-color: #55a3ec;
   position: relative;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
 }
 
 .contactUsBtn {
