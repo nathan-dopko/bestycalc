@@ -4,19 +4,18 @@ import { UilCheckCircle } from "@iconscout/react-unicons";
 
 export const Card = () => {
   const features = [
-    "Quick AI responses",
-    "Auto Pilot Messaging",
-    "Host Alerts & Notifications",
-    "Host Notes",
-    "Orphan gap auctions",
-    "Auto-import Information",
-    "Embedded in PMS inbox",
-    "Listings Sandbox",
+    "AI messaging",
+    "Fill orphan gap nights",
+    "Embedded in your PMS",
+    "AI-Generated tasks",
+    "No setup required",
+    "14-day free trial",
+    "No credit card required",
   ];
 
   return (
     <div className="card">
-      <div className="cardTitle">Features Included</div>
+      <div className="cardTitle">Besty Features</div>
       <div className="featuresList">
         {features.map((feature, index) => (
           <div key={index} className="featureItem">
