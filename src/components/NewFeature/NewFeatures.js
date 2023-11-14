@@ -38,12 +38,12 @@ export const NewFeatures = () => {
     <div className={styles.newFeature}>
       <div className={styles.titleBar}>
         <img src={bestyLogo} alt={"besty logo"} className={styles.logo} />
-        <div className={styles.navItems}>
+        {/* <div className={styles.navItems}>
           {navItems?.map((item) => {
             return <span>{item}</span>;
           })}
-        </div>
-        <div />
+        </div> */}
+        {/* <div /> */}
       </div>
       <div className={styles.wrapper}>
         <div className={styles.tabs}>
