@@ -36,22 +36,22 @@ export const NewFeatures = () => {
 
   return (
     <div className={styles.newFeature}>
-      <div className={styles.titleBar}>
+      {/* <div className={styles.titleBar}>
         <img src={bestyLogo} alt={"besty logo"} className={styles.logo} />
-        {/* <div className={styles.navItems}>
+        <div className={styles.navItems}>
           {navItems?.map((item) => {
             return <span>{item}</span>;
           })}
-        </div> */}
-        {/* <div /> */}
-      </div>
+        </div>
+        <div />
+      </div> */}
       <div className={styles.wrapper}>
         <div className={styles.tabs}>
-          <div className={styles.buttonWrapper}>
+          {/* <div className={styles.buttonWrapper}>
             <div className={styles.newTaskButton}>
               <span>Create new task</span> <UilPlusCircle size="18" />
             </div>
-          </div>
+          </div> */}
           {Object.entries(tabsConfig).map(([key, { title }]) => (
             <div className={`${styles.tab} ${key === activeTab ? styles.activeTab : ""}`} key={key} onClick={() => setActiveTab(key)}>
               {title}

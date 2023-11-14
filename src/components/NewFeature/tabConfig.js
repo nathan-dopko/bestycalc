@@ -175,17 +175,17 @@ export const tabsConfig = {
       {
         html: `
             <strong>Urban Gem: Chic City Studio</strong><br/>
-              Event: Elara Heights Jazz Festival, November 10-12<br/>
-              Highlight: Celebrate the city's rich jazz history with live performances, food stalls, and artist workshops.
+              Event: Elara Heights Jazz Festival, Nov 10-12<br />
+              Highlight: Celebrate the city’s rich jazz history with live performances, food stalls, and artist workshops.
             <br />
             <br />
            <strong>Spacious Suburb Family Home</strong><br/>
-              Event: Maplewood Autumn Fair, November 5-7<br/>
+              Event: Maplewood Autumn Fair, Nov 5-7<br/>
               Highlight: A family-friendly event featuring local crafts, pumpkin carving contests, and hayrides.
             <br />
             <br />
             <strong>Beach Condo: Ocean Breeze</strong><br/>
-              Event: Seabright Food & Wine Festival, November 19-21<br/>
+              Event: Seabright Food & Wine Festival, Nov 19-21<br/>
               Highlight: Indulge in gourmet coastal cuisine and fine wines from renowned local vineyards.
         `,
         author: "Besty AI",
@@ -197,6 +197,8 @@ export const tabsConfig = {
       {
         html: `
      Okay sure thing, here’s what I’ll add to the top of the description of each listing:
+     <br />
+     <br />
             <strong>Urban Gem: Chic City Studio:</strong>
             <br/>
             Enjoy the Elara Heights Jazz Festival (Nov 10-12) with live jazz, food stalls, and workshops, just a short walk away.
@@ -211,8 +213,12 @@ export const tabsConfig = {
             <br/>
             Savor the Seabright Food & Wine Festival (Nov 19-21) with gourmet cuisine and fine wines, steps from the beach.
              <br />
-             Are you sure you want me to add this text to each listing?
+             <br />
         `,
+        author: "Besty AI",
+      },
+      {
+        text: `Would you like me to proceed with adding the above text to each listing’s description?`,
         author: "Besty AI",
       },
       {
@@ -228,7 +234,7 @@ export const tabsConfig = {
         author: "alert",
       },
       {
-        html: `Great, done! Created a one-time task called “<strong>time-sensitive promotional events</strong>” in your Besty Dashboard if you want to check back up on this at any time.`,
+        text: `Great, done!`,
         author: "Besty AI",
       },
     ],
