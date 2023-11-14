@@ -1,20 +1,22 @@
 export const tabsConfig = {
   tab1: {
-    title: "Summarize my Airbnb reviews",
+    title: "Summarize Airbnb reviews",
     messages: [
       { text: "Can you look through all my reviews and summarize what I need to improve on Airbnb? Look at private feedback and public reviews.", author: "Sam" },
       { text: "Okay, which listing?", author: "Besty AI" },
       { text: "Let’s start with Bridgeview #2", author: "Sam" },
       {
         html: `
-            <p>Okay, Bridgeview #2 has 79 Airbnb reviews with an average overall rating of 4.93. I read through all 79 public reviews, and 29 private feedback that was left as well. Here’s what I found:</p>
-              <strong>Balcony Door Lock:</strong> Ensure the balcony door can be locked properly, or provide clear instructions on how to do so.
+            Okay, Bridgeview #2 has 79 Airbnb reviews with an average overall rating of 4.93.I read through all 79 public reviews and 29 private feedback comments that were left as well. Here’s what I found:
+            <br />
+            <br />
+              <strong>Balcony Door Lock:</strong> Ensure the balcony door can be locked properly.
               <br />
               <br />
-              <strong>Guest Guidebook Visibility:</strong> Make the guest guidebook more noticeable, perhaps with a note or label, so guests are aware of its existence and can make use of it from the beginning of their stay.
+              <strong>Guest Guidebook Visibility:</strong> Make the guest guidebook more noticeable,a note or or label.
               <br />
               <br />
-              <strong>Hallway Runner:</strong> Consider removing or securing the hallway runner to prevent tripping, sliding, or slipping hazards.
+              <strong>Hallway Runner:</strong> Consider removing or securing the hallway runner to prevent tripping.
               <br />
               <br />
               <strong>Bathroom Upgrades:</strong> Add a handheld shower head, a full-sized mirror, and conduct some maintenance on the bathroom door.
@@ -23,12 +25,14 @@ export const tabsConfig = {
               <strong>Blinds Maintenance:</strong> Check the blinds in the main bedroom to ensure they are functioning correctly, as guests had to fix them.
               <br />
               <br />
-              <strong>Key Fob Availability:</strong> Provide more than one key fob for the back door, especially for groups of 3-4 people. Also, be responsive to requests for additional fobs.
-            <p>I noticed you haven’t responded to any of the 79 guests reviews, this can help improve your listing visibility and gives more of a personalized touch. Would you like me to write back to each one thanking them for the detailed feedback and for their time at your condo?</p>
+              <strong>Key Fob Availability:</strong> PProvide more than one key fob for the back door, especially for groups of 3-4 people.
           `,
         author: "Besty AI",
       },
-
+      {
+        text: "I noticed you haven’t responded to any of the 79 guests reviews, this can help improve your listing visibility and gives more of a personalized touch. Would you like me to write back to each one thanking them for the detailed feedback and for their time at your condo?",
+        author: "Besty AI",
+      },
       { text: "Yes", author: "Sam" },
       { text: "ACTION COMPLETED: RESPONDED TO 79 AIRBNB GUEST REVIEWS.", author: "alert" },
       {
@@ -44,24 +48,22 @@ export const tabsConfig = {
     ],
   },
   tab2: {
-    title: "Quarterly owner portfolio update",
+    title: "Quarterly owner update",
     messages: [
       {
         html: `
-                <p>Hey, here’s a list of each of my 2 owners and their listings. Each quarter, I’d like you to send me a recap email draft that summarizes their occupancy (as well as month-over-month occupancy comparison), highlights the best review from each property, and gives a brief outlook on how the following quarter is looking: </p>
-                <ul>
-                  <li>Evelyn Rivera</li>
+                Hey, here’s a list of each of my 2 owners and their listings. Each quarter, I’d like you to send me a recap email draft that summarizes their occupancy (as well as month-over-month occupancy comparison), highlights the best review from each property, and gives a brief outlook on how the following quarter is looking: 
+                 Evelyn Rivera
                     <ul>
                         <li>Cozy Countryside Cottage: A Rustic Getaway</li>
                         <li>The Urban Oasis: Chic Loft in Downtown Vista</li>
                         <li>Lakeside Serenity: Modern Cabin with Stunning Views</li>
                     </ul>
-                    <li>Marcus Yeung</li>
+                   Marcus Yeung
                     <ul>
                         <li>The Hilltop Haven: Panoramic City Views</li>
                         <li>Seaside Escape: Beachfront Condo with Balcony</li>
                     </ul>
-                </ul>
               `,
         author: "Sam",
       },
@@ -71,8 +73,8 @@ export const tabsConfig = {
       },
       {
         html: `
-          <p><strong>Dear Evelyn,</strong></p>
-          <p>I hope this email finds you well. Here's your quarterly update for your Airbnb listings:</p>
+          <strong>Dear Evelyn,</strong>
+          I hope this email finds you well. Here's your quarterly update for your Airbnb listings:
           <ol>
             <li><strong>Cozy Countryside Cottage:</strong><br/>
               Occupancy: 85% (up from 75% last quarter)<br/>
@@ -87,7 +89,7 @@ export const tabsConfig = {
               Highlight Review: "The perfect blend of modern amenities and natural beauty."
             </li>
           </ol>
-          <p>Next Quarter Outlook: Bookings for the upcoming quarter look promising, particularly for The Urban Oasis and Hidden Gem Bungalow. We'll continue to leverage their popularity while boosting visibility for Lakeside Serenity.</p>
+          Next Quarter Outlook: Bookings for the upcoming quarter look promising, particularly for The Urban Oasis and Hidden Gem Bungalow. We'll continue to leverage their popularity while boosting visibility for Lakeside Serenity.
 
 
         `,
@@ -95,13 +97,13 @@ export const tabsConfig = {
       },
       {
         html: `
-          <p>Hello Marcus,</p>
-          <p>Here's the latest update on your Airbnb listings for this quarter:</p>
+          Hello Marcus,
+          Here's the latest update on your Airbnb listings for this quarter:
           <ul>
             <li><strong>The Hilltop Haven:</strong> Occupancy at 92% (previously 85%). The panoramic views continue to amaze guests. The next quarter is looking even busier with advanced bookings.</li>
             <li><strong>Seaside Escape:</strong> A slight dip in occupancy to 78% from 82%. Guests praised the "stunning beachfront views." Expecting a rebound next quarter with seasonal beachgoers.</li>
           </ul>
-          <p>Your properties are performing well, with positive trends expected to continue. Looking forward to another successful quarter!</p>
+          Your properties are performing well, with positive trends expected to continue. Looking forward to another successful quarter!
         `,
         author: "Besty AI",
       },
@@ -120,31 +122,40 @@ export const tabsConfig = {
     ],
   },
   tab3: {
-    title: "Increase my listing conversion rate",
+    title: "Increase listing conversion",
     messages: [
       {
+        text: "Pull up all my listing titles",
+        author: "Sam",
+      },
+      {
         html: `
-          <p>Pull up all my listing titles:</p>
-          <p>You have 3 listings, here are the titles on Airbnb & VRBO:</p>
+      You have 3 listings, here are the titles on Airbnb & VRBO:
           <ul>
             <li>Small City Apartment</li>
             <li>Large House in the Suburbs</li>
             <li>Medium-Sized Condo Near the Beach</li>
           </ul>
-          <p>Great, improve them all to make them sound more marketable.</p>
         `,
         author: "Besty AI",
       },
       {
-        text: `Here you go, but keep in mind Airbnb has a 50-character limit on titles, so I re-wrote them respecting this constraint:
-        
-"Urban Gem: Chic City Studio"
-"Spacious Suburb Family Home"
-"Beach Condo: Ocean Breeze"
-
-Would you like me to update your listings with these new titles?`,
+        text: "Great, improve them all to make them sound more marketable.",
+        author: "Sam",
+      },
+      {
+        html: `
+         Here you go, but keep in mind Airbnb has a 50-character limit on titles, so I re-wrote them respecting this constraint:
+          <ul>
+            <li>"Urban Gem: Chic City Studio"</li>
+            <li>"Spacious Suburb Family Home"</li>
+            <li>"Beach Condo: Ocean Breeze"</li>
+          </ul>
+         Would you like me to update your listings with these new titles?
+        `,
         author: "Besty AI",
       },
+
       {
         text: "Yes",
         author: "Sam",
@@ -176,7 +187,6 @@ Would you like me to update your listings with these new titles?`,
             <strong>Beach Condo: Ocean Breeze</strong><br/>
               Event: Seabright Food & Wine Festival, November 19-21<br/>
               Highlight: Indulge in gourmet coastal cuisine and fine wines from renowned local vineyards.
-         
         `,
         author: "Besty AI",
       },
@@ -186,7 +196,7 @@ Would you like me to update your listings with these new titles?`,
       },
       {
         html: `
-        <p>Okay sure thing, here’s what I’ll add to the top of the description of each listing:</p>
+     Okay sure thing, here’s what I’ll add to the top of the description of each listing:
             <strong>Urban Gem: Chic City Studio:</strong>
             <br/>
             Enjoy the Elara Heights Jazz Festival (Nov 10-12) with live jazz, food stalls, and workshops, just a short walk away.
@@ -201,7 +211,7 @@ Would you like me to update your listings with these new titles?`,
             <br/>
             Savor the Seabright Food & Wine Festival (Nov 19-21) with gourmet cuisine and fine wines, steps from the beach.
              <br />
-             <p>Are you sure you want me to add this text to each listing?</p>
+             Are you sure you want me to add this text to each listing?
         `,
         author: "Besty AI",
       },
@@ -240,29 +250,29 @@ Would you like me to update your listings with these new titles?`,
       },
       {
         html: `
-          <p>Here’s 3 templates, let me know which one you approve or if you have any changes:</p>
+          Here’s 3 templates, let me know which one you approve or if you have any changes:
           <div>
             <strong>Template 1:</strong>
-            <p>Subject: Miss Us? Special 10% Off for Your October Stay, (Guest First Name)!</p>
-            <p>Dear (Guest First Name),</p>
-            <p>We hope you’ve been doing wonderfully since your last visit! As autumn approaches, we’d love to welcome you back. Book your October stay with us and enjoy a special 10% discount. Re-experience the magic or discover new adventures. Just use code OCT10 when booking.</p>
-            <p>Warm regards,</p>
-            <p>Sam</p>
+            Subject: Miss Us? Special 10% Off for Your October Stay, (Guest First Name)!
+            Dear (Guest First Name),
+            We hope you’ve been doing wonderfully since your last visit! As autumn approaches, we’d love to welcome you back. Book your October stay with us and enjoy a special 10% discount. Re-experience the magic or discover new adventures. Just use code OCT10 when booking.
+            Warm regards,
+            Sam
           </div>
           <div>
             <strong>Template 2:</strong>
-            <p>Subject: 🍂 October Awaits, (Guest First Name)! Enjoy 10% Off on Your Next Stay</p>
-            <p>Hi (Guest First Name),</p>
-            <p>Fall is around the corner, and so is your chance to revisit us with a 10% discount! Whether it’s the colorful leaves or cozy vibes you’re after, October at our place is not to be missed.</p>
-            <p>Best,</p>
-            <p>Sam</p>
+            Subject: 🍂 October Awaits, (Guest First Name)! Enjoy 10% Off on Your Next Stay
+            Hi (Guest First Name),
+            Fall is around the corner, and so is your chance to revisit us with a 10% discount! Whether it’s the colorful leaves or cozy vibes you’re after, October at our place is not to be missed.
+            Best,
+            Sam
           </div>
           <div>
             <strong>Template 3:</strong>
-            <p>Hello (Guest First Name),</p>
-            <p>Remember the good times you had here? Let’s make more this October! As a thank you for being a fantastic guest, we’re offering you 10% off for your next stay. Can’t wait to see you again!</p>
-            <p>Cheers,</p>
-            <p>Sam</p>
+            Hello (Guest First Name),
+            Remember the good times you had here? Let’s make more this October! As a thank you for being a fantastic guest, we’re offering you 10% off for your next stay. Can’t wait to see you again!
+            Cheers,
+            Sam
           </div>
         `,
         author: "Besty AI",
@@ -282,7 +292,7 @@ Would you like me to update your listings with these new titles?`,
     ],
   },
   tab5: {
-    title: "Update Amenities",
+    title: "Update amenities",
     messages: [
       {
         text: `I just added EV chargers to all my listings in LA. Can you please add this amenity to all my LA listings?`,
@@ -290,7 +300,7 @@ Would you like me to update your listings with these new titles?`,
       },
       {
         html: `
-          <p>Sure thing. Just to confirm, you have 6 properties in the greater LA area. Would you like me to add EV Charger as an amenity to each of the following properties?</p>
+         Sure thing. Just to confirm, you have 6 properties in the greater LA area. Would you like me to add EV Charger as an amenity to each of the following properties?
           <ul>
             <li>Sunset Boulevard Chic Studio</li>
             <li>Venice Beach Dream Condo</li>

@@ -5,6 +5,7 @@ import { tabsConfig } from "./tabConfig";
 import sam from "./assets/sam.png";
 import besty from "./assets/besty.png";
 import bestyLogo from "./assets/bestyLogo.png";
+import { UilPlusCircle } from "@iconscout/react-unicons";
 
 export const NewFeatures = () => {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -15,10 +16,11 @@ export const NewFeatures = () => {
 
   const currentTabContent = tabsConfig[activeTab].messages.map((message, index) => {
     const isHtmlMessage = message.hasOwnProperty("html");
+    const messageClassName = message.author === "Sam" ? styles.samMessage : message.author === "alert" ? styles.alertMessage : styles.systemMessage;
     const authorImage = message.author === "Sam" ? sam : besty;
 
     return (
-      <div key={index} className={`${styles.message} ${message.author === "Sam" ? styles.samMessage : message.author === "alert" ? styles.alertMessage : styles.systemMessage}`}>
+      <div key={index} className={`${styles.message} ${messageClassName} ${isHtmlMessage ? styles.htmlMessage : null}`}>
         {isHtmlMessage ? <div dangerouslySetInnerHTML={createMarkup(message.html)} /> : <div>{message.text}</div>}
         {message.author !== "alert" && (
           <div className={styles.nameWrapper}>
@@ -45,6 +47,11 @@ export const NewFeatures = () => {
       </div>
       <div className={styles.wrapper}>
         <div className={styles.tabs}>
+          <div className={styles.buttonWrapper}>
+            <div className={styles.newTaskButton}>
+              <span>Create new task</span> <UilPlusCircle size="18" />
+            </div>
+          </div>
           {Object.entries(tabsConfig).map(([key, { title }]) => (
             <div className={`${styles.tab} ${key === activeTab ? styles.activeTab : ""}`} key={key} onClick={() => setActiveTab(key)}>
               {title}
