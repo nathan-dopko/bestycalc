@@ -52,7 +52,9 @@ export const tabsConfig = {
     messages: [
       {
         html: `
-                Hey, here’s a list of each of my 2 owners and their listings. Each quarter, I’d like you to send me a recap email draft that summarizes their occupancy (as well as month-over-month occupancy comparison), highlights the best review from each property, and gives a brief outlook on how the following quarter is looking: 
+        Here’s a list of my 2 owners and their listings. Draft me an email that summarizes their occupancy and compares it to last quarter, highlight a notable review from each property, and give a brief outlook on next quarter.
+        <br />
+        <br />
                  Evelyn Rivera
                     <ul>
                         <li>Cozy Countryside Cottage: A Rustic Getaway</li>
