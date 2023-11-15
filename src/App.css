@@ -19,7 +19,7 @@
 @media (max-width: 900px) {
   .App {
     background-color: #fff;
-    min-height: fit-content;
+    min-height: 100%;
   }
 
   .compWrapper {
