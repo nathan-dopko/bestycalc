@@ -20,7 +20,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<CompWrapper />} />
-          <Route path="/newFeature" element={<NewFeatures />} />
+          <Route path="/copilot" element={<NewFeatures />} />
         </Routes>
       </div>
     </Router>
