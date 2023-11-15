@@ -21,7 +21,7 @@
   padding: 12px;
   box-sizing: border-box;
   border-radius: 4px;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .inputWrapper {
@@ -99,6 +99,68 @@
   height: fit-content;
 }
 
+.loading {
+  padding: 15px;
+  margin: 5px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  background-color: #f1f1f1;
+  max-width: fit-content;
+}
+
+.typing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 20px;
+  gap: 5px;
+}
+
+.circle {
+  display: block;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background-color: #8d8d8d;
+}
+
+.loadingImage {
+  width: 18px;
+  height: 18px;
+}
+
+.scaling {
+  animation: typing 1000ms ease-in-out infinite;
+}
+
+.circle:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.circle:nth-child(2) {
+  animation-delay: 333ms;
+}
+
+.circle:nth-child(3) {
+  animation-delay: 666ms;
+}
+
+@keyframes typing {
+  0%,
+  33%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+}
+
 /* scroll bar */
 
 .messagesWrapper::-webkit-scrollbar {
@@ -130,9 +192,6 @@
     flex-direction: column;
     height: auto;
     padding: 20px;
-  }
-
-  .logo {
   }
 
   .tabs {
