@@ -48,15 +48,18 @@ export const NewFeatures = () => {
 
   return (
     <div className={styles.newFeature}>
-      {/* <div className={styles.titleBar}>
-        <img src={bestyLogo} alt={"besty logo"} className={styles.logo} />
+      <div className={styles.titleBar}>
+        <div className={styles.whiteDot} />
+        <div className={styles.whiteDot} />
+        <div className={styles.whiteDot} />
+        {/* <img src={bestyLogo} alt={"besty logo"} className={styles.logo} />
         <div className={styles.navItems}>
           {navItems?.map((item) => {
             return <span>{item}</span>;
           })}
         </div>
-        <div />
-      </div> */}
+        <div /> */}
+      </div>
       <div className={styles.wrapper}>
         <div className={styles.tabs}>
           {/* <div className={styles.buttonWrapper}>
@@ -64,10 +67,13 @@ export const NewFeatures = () => {
               <span>Create new task</span> <UilPlusCircle size="18" />
             </div>
           </div> */}
-          {Object.entries(tabsConfig).map(([key, { title }]) => (
-            <div className={`${styles.tab} ${key === activeTab ? styles.activeTab : ""}`} key={key} onClick={() => setActiveTab(key)}>
-              {title}
-            </div>
+          {Object.entries(tabsConfig).map(([key, { title }], index) => (
+            <>
+              <div className={`${styles.tab} ${key === activeTab ? styles.activeTab : ""}`} key={key} onClick={() => setActiveTab(key)}>
+                {title}
+              </div>
+              {index !== Object.entries(tabsConfig).length - 1 && <div className={styles.tabDivider} />}
+            </>
           ))}
         </div>
         <div className={styles.content}>

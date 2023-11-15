@@ -8,11 +8,21 @@
 
 .titleBar {
   display: flex;
-  height: 54px;
+  height: 30px;
   padding: 10px;
   box-sizing: border-box;
   align-items: center;
-  justify-content: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #4faef8;
+  gap: 4px;
+}
+
+.whiteDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
 }
 
 .navItems {
@@ -31,7 +41,9 @@
   display: flex;
   width: 800px;
   height: fit-content;
-  gap: 4px;
+  background: #f2f3f7;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .tabs {
@@ -63,7 +75,13 @@
 }
 
 .activeTab {
-  border-left: 3px solid rgb(85, 153, 202);
+  border-left: 3px solid #4faef8;
+  background: #e5e9f2;
+}
+
+.tabDivider {
+  height: 1.3px;
+  width: 100%;
   background: #e5e9f2;
 }
 
@@ -75,8 +93,9 @@
   gap: 8px;
   background: #f2f3f7;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 10px;
   box-sizing: border-box;
+  padding-left: 0;
 }
 
 .messagesWrapper {
