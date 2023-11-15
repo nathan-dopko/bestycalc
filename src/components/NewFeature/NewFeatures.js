@@ -18,7 +18,7 @@ export const NewFeatures = () => {
         {/* <div className={`${styles.whiteDot} ${styles.yellow}`} /> */}
         {/* <div className={`${styles.whiteDot} ${styles.green}`} /> */}
       </div>
-      {/* <div className={styles.navBar}>
+      <div className={styles.navBar}>
         <img src={bestyLogo} alt={"besty logo"} className={styles.logo} />
         <div className={styles.navItems}>
           {navItems?.map((item, index) => {
@@ -31,7 +31,7 @@ export const NewFeatures = () => {
           })}
         </div>
         <UilBars size="20" color={"black"} className={styles.hamburger} />
-      </div> */}
+      </div>
       <div className={styles.wrapper}>
         <Tabs tabsConfig={tabsConfig} activeTab={activeTab} setActiveTab={setActiveTab} />
         <Content tabsConfig={tabsConfig} activeTab={activeTab} />
