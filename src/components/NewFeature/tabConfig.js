@@ -25,7 +25,7 @@ export const tabsConfig = {
               <strong>Blinds Maintenance:</strong> Check the blinds in the main bedroom to ensure they are functioning correctly, as guests had to fix them.
               <br />
               <br />
-              <strong>Key Fob Availability:</strong> PProvide more than one key fob for the back door, especially for groups of 3-4 people.
+              <strong>Key Fob Availability:</strong> Provide more than one key fob for the back door, especially for groups of 3-4 people.
           `,
         author: "Besty AI",
       },
