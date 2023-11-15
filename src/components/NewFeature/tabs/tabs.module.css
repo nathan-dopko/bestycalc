@@ -48,7 +48,7 @@
     overflow-x: auto;
     scrollbar-width: thin;
     box-sizing: border-box;
-    width: calc(100vw - 80px);
+    width: calc(100vw - 20px);
   }
 
   .tab {
