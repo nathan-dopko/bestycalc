@@ -1,0 +1,79 @@
+.tabWrapper {
+  padding: 10px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+  border-radius: 4px;
+  background: #f2f3f7;
+  box-sizing: border-box;
+}
+
+.tab {
+  height: 50px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  box-sizing: border-box;
+  padding: 4px 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tab:hover {
+  background: #e5e9f2;
+}
+
+.activeTab {
+  border-left: 3px solid #4faef8;
+  background: #e5e9f2;
+}
+
+.tabDivider {
+  height: 1.3px;
+  width: 100%;
+  background: #e5e9f2;
+}
+
+@media only screen and (max-width: 900px) {
+  .tabs {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    box-sizing: border-box;
+    width: calc(100vw - 80px);
+  }
+
+  .tab {
+    flex: 0 0 auto;
+    width: auto;
+    border-bottom: 3px solid transparent;
+    border-left: none;
+  }
+
+  .tabDivider {
+    display: none;
+  }
+
+  .activeTab {
+    border-left: none;
+    border-bottom: 3px solid #4faef8;
+    background: #e5e9f2;
+  }
+}
+
+.tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 2px;
+}
