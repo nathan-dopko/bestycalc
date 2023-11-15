@@ -9,7 +9,9 @@ import { UilBars } from "@iconscout/react-unicons";
 export const NewFeatures = () => {
   const [activeTab, setActiveTab] = useState("tab1");
 
-  const navItems = ["Copilot", "Analytics", "Unanswered Messages", "Listings", "Settings"];
+  // const navItems = ["Copilot", "Analytics", "Unanswered Messages", "Listings", "Settings"];
+
+  const navItems = ["Copilot"];
 
   return (
     <div className={styles.newFeature}>
@@ -20,15 +22,15 @@ export const NewFeatures = () => {
         <img src={bestyLogo} alt={"besty logo"} className={styles.logo} />
         <div className={styles.navItems}>
           {navItems?.map((item, index) => {
-            const itemClass = item === "Copilot" ? styles.blueText : "";
+            // const itemClass = item === "Copilot" ? styles.blueText : "";
             return (
-              <span key={index} className={itemClass}>
+              <span key={index} className={""}>
                 {item}
               </span>
             );
           })}
         </div>
-        <UilBars size="20" color={"black"} className={styles.hamburger} />
+        {/* <UilBars size="20" color={"black"} className={styles.hamburger} /> */}
       </div>
       <div className={styles.wrapper}>
         <Tabs tabsConfig={tabsConfig} activeTab={activeTab} setActiveTab={setActiveTab} />
