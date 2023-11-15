@@ -122,6 +122,12 @@
   max-width: 60%;
 }
 
+.attachmentMessage {
+  align-self: flex-end;
+  background-color: #cae2fc;
+  max-width: 60%;
+}
+
 .systemMessage {
   align-self: flex-start;
   background-color: #f1f1f1;
