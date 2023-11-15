@@ -8,7 +8,7 @@ const createMarkup = (htmlString) => {
   return { __html: htmlString };
 };
 
-export const Content = ({ tabsConfig, activeTab, autoPlay = true }) => {
+export const Content = ({ tabsConfig, activeTab, autoPlay, isDefaultMode }) => {
   const messagesEndRef = useRef(null);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [displayedMessages, setDisplayedMessages] = useState([]);
@@ -19,6 +19,13 @@ export const Content = ({ tabsConfig, activeTab, autoPlay = true }) => {
   };
 
   const displayMessageWithDelay = (index) => {
+    if (isDefaultMode) {
+      const message = tabsConfig[activeTab]?.messages[index];
+      setDisplayedMessages((prevMessages) => [...prevMessages, message]);
+      setCurrentMessageIndex(index);
+      return;
+    }
+
     const nextMessage = tabsConfig[activeTab]?.messages[index];
 
     if (displayedMessages.length && displayedMessages[displayedMessages.length - 1] === nextMessage) {
@@ -36,7 +43,7 @@ export const Content = ({ tabsConfig, activeTab, autoPlay = true }) => {
           return [...prevMessages, nextMessage];
         });
         setCurrentMessageIndex(index);
-      }, 2000);
+      }, 1500);
     } else {
       setDisplayedMessages((prevMessages) => {
         if (prevMessages.includes(nextMessage)) {
@@ -57,17 +64,24 @@ export const Content = ({ tabsConfig, activeTab, autoPlay = true }) => {
   }, [activeTab, autoPlay, tabsConfig]);
 
   useEffect(() => {
-    if (tabsConfig[activeTab] && tabsConfig[activeTab]?.messages) {
-      if (autoPlay) {
+    if (tabsConfig[activeTab]?.messages) {
+      if (isDefaultMode) {
+        // In default mode, we want to set all messages from the config
+        setDisplayedMessages(tabsConfig[activeTab].messages);
+        setCurrentMessageIndex(tabsConfig[activeTab].messages.length - 1);
+      } else if (autoPlay) {
+        // If not in default mode and autoplay is enabled, start the display with delay
         displayMessageWithDelay(0);
       } else {
-        setDisplayedMessages([tabsConfig[activeTab]?.messages[0]]);
+        // If autoplay is not enabled, just set the first message
+        setDisplayedMessages([tabsConfig[activeTab].messages[0]]);
         setCurrentMessageIndex(0);
       }
     } else {
+      // If there are no messages in the config for the active tab, clear the display
       setDisplayedMessages([]);
     }
-  }, [tabsConfig, activeTab, autoPlay]);
+  }, [tabsConfig, activeTab, autoPlay, isDefaultMode]);
 
   useLayoutEffect(() => {
     scrollToBottom();
@@ -90,6 +104,7 @@ export const Content = ({ tabsConfig, activeTab, autoPlay = true }) => {
   }, [tabsConfig, activeTab]);
 
   useEffect(() => {
+    if (isDefaultMode) return;
     const handleKeyDown = (event) => {
       if (event.key === "ArrowLeft") {
         handlePrevMessage();
@@ -103,7 +118,7 @@ export const Content = ({ tabsConfig, activeTab, autoPlay = true }) => {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [handlePrevMessage, handleNextMessage]);
+  }, [handlePrevMessage, handleNextMessage, isDefaultMode]);
 
   const messageComponents = displayedMessages.map((message, index) => {
     if (typeof message === "undefined") {

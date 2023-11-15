@@ -15,8 +15,6 @@ export const NewFeatures = () => {
     <div className={styles.newFeature}>
       <div className={styles.titleBar}>
         <div className={`${styles.whiteDot} ${styles.red}`} />
-        {/* <div className={`${styles.whiteDot} ${styles.yellow}`} /> */}
-        {/* <div className={`${styles.whiteDot} ${styles.green}`} /> */}
       </div>
       <div className={styles.navBar}>
         <img src={bestyLogo} alt={"besty logo"} className={styles.logo} />
@@ -34,7 +32,7 @@ export const NewFeatures = () => {
       </div>
       <div className={styles.wrapper}>
         <Tabs tabsConfig={tabsConfig} activeTab={activeTab} setActiveTab={setActiveTab} />
-        <Content tabsConfig={tabsConfig} activeTab={activeTab} />
+        <Content tabsConfig={tabsConfig} activeTab={activeTab} autoPlay={false} isDefaultMode={false} />
       </div>
     </div>
   );

@@ -41,16 +41,6 @@
   transition: 0.2s ease-in-out;
 }
 
-.yellow:hover {
-  background-color: #fff25e;
-  transition: 0.2s ease-in-out;
-}
-
-.green:hover {
-  background-color: #74ff5e;
-  transition: 0.2s ease-in-out;
-}
-
 .navItems {
   font-size: 13px;
   display: flex;
