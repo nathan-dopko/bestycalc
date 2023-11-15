@@ -44,7 +44,7 @@ export const NewFeatures = () => {
       );
   });
 
-  const navItems = ["Analytics", "Unanswered Messages", "Listings", "Settings"];
+  const navItems = ["Copilot", "Analytics", "Unanswered Messages", "Listings", "Settings"];
 
   return (
     <div className={styles.newFeature}>
@@ -52,13 +52,19 @@ export const NewFeatures = () => {
         <div className={`${styles.whiteDot} ${styles.red}`} />
         <div className={`${styles.whiteDot} ${styles.yellow}`} />
         <div className={`${styles.whiteDot} ${styles.green}`} />
-        {/* <img src={bestyLogo} alt={"besty logo"} className={styles.logo} />
+      </div>
+      <div className={styles.navBar}>
+        <img src={bestyLogo} alt={"besty logo"} className={styles.logo} />
         <div className={styles.navItems}>
-          {navItems?.map((item) => {
-            return <span>{item}</span>;
+          {navItems?.map((item, index) => {
+            const itemClass = item === "Copilot" ? styles.blueText : "";
+            return (
+              <span key={index} className={itemClass}>
+                {item}
+              </span>
+            );
           })}
         </div>
-        <div /> */}
       </div>
       <div className={styles.wrapper}>
         <div className={styles.tabs}>
