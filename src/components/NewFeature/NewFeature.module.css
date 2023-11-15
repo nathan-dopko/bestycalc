@@ -120,9 +120,9 @@
     display: flex;
   }
 
-  .navItems {
+  /* .navItems {
     display: none;
-  }
+  } */
 
   .logo {
     width: 90px;
