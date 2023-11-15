@@ -9,15 +9,19 @@ const createMarkup = (htmlString) => {
 };
 
 export const Content = ({ tabsConfig, activeTab, autoPlay, isDefaultMode }) => {
-  const messagesEndRef = useRef(null);
+  const messagesWrapperRef = useRef(null);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [displayedMessages, setDisplayedMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesWrapperRef.current) {
+      messagesWrapperRef.current.scrollTo({
+        top: messagesWrapperRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
   };
-
   const displayMessageWithDelay = (index) => {
     if (isDefaultMode) {
       const message = tabsConfig[activeTab]?.messages[index];
@@ -66,19 +70,15 @@ export const Content = ({ tabsConfig, activeTab, autoPlay, isDefaultMode }) => {
   useEffect(() => {
     if (tabsConfig[activeTab]?.messages) {
       if (isDefaultMode) {
-        // In default mode, we want to set all messages from the config
         setDisplayedMessages(tabsConfig[activeTab].messages);
         setCurrentMessageIndex(tabsConfig[activeTab].messages.length - 1);
       } else if (autoPlay) {
-        // If not in default mode and autoplay is enabled, start the display with delay
         displayMessageWithDelay(0);
       } else {
-        // If autoplay is not enabled, just set the first message
         setDisplayedMessages([tabsConfig[activeTab].messages[0]]);
         setCurrentMessageIndex(0);
       }
     } else {
-      // If there are no messages in the config for the active tab, clear the display
       setDisplayedMessages([]);
     }
   }, [tabsConfig, activeTab, autoPlay, isDefaultMode]);
@@ -163,7 +163,7 @@ export const Content = ({ tabsConfig, activeTab, autoPlay, isDefaultMode }) => {
 
   return (
     <div className={styles.content}>
-      <div className={styles.messagesWrapper}>
+      <div className={styles.messagesWrapper} ref={messagesWrapperRef}>
         {messageComponents}
         {isLoading && (
           <div className={styles.loading}>
@@ -175,7 +175,7 @@ export const Content = ({ tabsConfig, activeTab, autoPlay, isDefaultMode }) => {
             </div>
           </div>
         )}
-        <div ref={messagesEndRef} />
+        {/* <div ref={messagesEndRef} /> */}
       </div>
       <div className={styles.inputWrapper}>
         <span>Ask me anything...</span>
