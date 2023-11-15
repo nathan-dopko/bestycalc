@@ -437,7 +437,7 @@ export const tabsConfig = {
         author: "Besty AI",
       },
       {
-        text: `YMake it brief`,
+        text: `Make it brief`,
         author: "Sam",
       },
       {
