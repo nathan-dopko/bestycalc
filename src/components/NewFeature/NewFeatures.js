@@ -49,9 +49,9 @@ export const NewFeatures = () => {
   return (
     <div className={styles.newFeature}>
       <div className={styles.titleBar}>
-        <div className={styles.whiteDot} />
-        <div className={styles.whiteDot} />
-        <div className={styles.whiteDot} />
+        <div className={`${styles.whiteDot} ${styles.red}`} />
+        <div className={`${styles.whiteDot} ${styles.yellow}`} />
+        <div className={`${styles.whiteDot} ${styles.green}`} />
         {/* <img src={bestyLogo} alt={"besty logo"} className={styles.logo} />
         <div className={styles.navItems}>
           {navItems?.map((item) => {
