@@ -42,10 +42,10 @@
 }
 
 .navItems {
-  font-size: 13px;
+  font-size: 14px;
   display: flex;
   gap: 20px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: default;
 }
 
