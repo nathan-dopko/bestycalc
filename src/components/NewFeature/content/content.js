@@ -71,7 +71,7 @@ export const Content = ({ tabsConfig, activeTab, autoPlay = true }) => {
 
   useLayoutEffect(() => {
     scrollToBottom();
-  }, [displayedMessages]);
+  }, [displayedMessages, isLoading]);
 
   const handlePrevMessage = useCallback(() => {
     setCurrentMessageIndex((prevIndex) => {
