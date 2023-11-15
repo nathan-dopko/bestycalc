@@ -112,6 +112,8 @@
   .newFeature {
     padding: 20px;
     flex-direction: column;
+    padding: 0;
+    height: fit-content;
   }
 
   .wrapper {
