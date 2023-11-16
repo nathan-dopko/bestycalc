@@ -1,5 +1,64 @@
 export const tabsConfig = {
   tab1: {
+    title: "Construction update",
+    messages: [
+      {
+        html: `Please message all the guests staying in units #405, #204 and the 2BR Penthouse between Jan 5 - 15th 2024, letting them know that we’ve just been informed that the building will be doing a renovation in the lobby.
+        <br />
+        <br />
+        They’re going to be working from 9am - 5pm from Mon-Fri and have assured us the noise will not be an issue, but that we just wanted to give them a heads up so there’s no surprises during their stay and to let us know if it’s an issue during their stay.`,
+        author: "Sam",
+      },
+      {
+        text: `You got it, here’s the draft:`,
+        author: "Besty AI",
+      },
+      {
+        html: `
+        Hello [Guest’s Name],
+        <br />
+        <br />
+        I hope this message finds you well!
+        <br />
+        <br />
+        I wanted to give you a quick heads-up about some upcoming renovations in our building’s lobby.
+        <br />
+        <br />
+        From Monday to Friday, between 9 AM and 5 PM during your stay, there will be some work going on. We’ve been assured that the noise levels will be minimal and shouldn’t disrupt your stay. However, we believe in transparency and wanted to inform you in advance to avoid any surprises.
+        <br />
+        <br />
+        Your comfort and satisfaction are our top priorities, so please don’t hesitate to reach out if you find the renovations to be an inconvenience or if you have any other concerns during your stay.
+        `,
+        author: "Besty AI",
+      },
+      {
+        text: `Make it brief`,
+        author: "Sam",
+      },
+      {
+        html: `
+        Hello [Guest’s Name],
+        <br />
+        <br />
+        Just a quick note: there will be renovation work in the building’s lobby, Mon-Fri from 9 AM to 5 PM during your stay. We’re told noise won’t be an issue, but wanted to keep you informed to avoid any surprises. If you encounter any concerns during your stay, please let us know.
+        <br />
+        <br />
+        Thanks for your understanding!
+        `,
+        author: "Besty AI",
+      },
+      {
+        text: `Okay send it`,
+        author: "Sam",
+      },
+      { text: "ACTION COMPLETE: Message sent to 12 guests staying in units #405, #204 and the 2BR Penthouse.", author: "alert" },
+      {
+        text: `Done!`,
+        author: "Besty AI",
+      },
+    ],
+  },
+  tab2: {
     title: "Summarize Airbnb reviews",
     messages: [
       { text: "Can you look through all my reviews and summarize what I need to improve on Airbnb? Look at private feedback and public reviews.", author: "Sam" },
@@ -47,7 +106,7 @@ export const tabsConfig = {
       },
     ],
   },
-  tab2: {
+  tab3: {
     title: "Quarterly owner update",
     messages: [
       {
@@ -123,7 +182,7 @@ export const tabsConfig = {
       },
     ],
   },
-  tab3: {
+  tab4: {
     title: "Increase listing conversion",
     messages: [
       {
@@ -241,7 +300,7 @@ export const tabsConfig = {
       },
     ],
   },
-  tab4: {
+  tab5: {
     title: "Retarget past guests",
     messages: [
       {
@@ -325,7 +384,7 @@ export const tabsConfig = {
       },
     ],
   },
-  tab5: {
+  tab6: {
     title: "Update amenities",
     messages: [
       {
@@ -360,7 +419,7 @@ export const tabsConfig = {
       },
     ],
   },
-  tab6: {
+  tab7: {
     title: "Create listing description",
     messages: [
       {
@@ -400,65 +459,6 @@ export const tabsConfig = {
           <br />
           Business travelers, couples, and families seeking a luxurious city escape.
         `,
-        author: "Besty AI",
-      },
-    ],
-  },
-  tab7: {
-    title: "Construction update",
-    messages: [
-      {
-        html: `Please message all the guests staying in units #405, #204 and the 2BR Penthouse between Jan 5 - 15th 2024, letting them know that we’ve just been informed that the building will be doing a renovation in the lobby.
-        <br />
-        <br />
-        They’re going to be working from 9am - 5pm from Mon-Fri and have assured us the noise will not be an issue, but that we just wanted to give them a heads up so there’s no surprises during their stay and to let us know if it’s an issue during their stay.`,
-        author: "Sam",
-      },
-      {
-        text: `You got it, here’s the draft:`,
-        author: "Besty AI",
-      },
-      {
-        html: `
-        Hello [Guest’s Name],
-        <br />
-        <br />
-        I hope this message finds you well!
-        <br />
-        <br />
-        I wanted to give you a quick heads-up about some upcoming renovations in our building’s lobby.
-        <br />
-        <br />
-        From Monday to Friday, between 9 AM and 5 PM during your stay, there will be some work going on. We’ve been assured that the noise levels will be minimal and shouldn’t disrupt your stay. However, we believe in transparency and wanted to inform you in advance to avoid any surprises.
-        <br />
-        <br />
-        Your comfort and satisfaction are our top priorities, so please don’t hesitate to reach out if you find the renovations to be an inconvenience or if you have any other concerns during your stay.
-        `,
-        author: "Besty AI",
-      },
-      {
-        text: `Make it brief`,
-        author: "Sam",
-      },
-      {
-        html: `
-        Hello [Guest’s Name],
-        <br />
-        <br />
-        Just a quick note: there will be renovation work in the building’s lobby, Mon-Fri from 9 AM to 5 PM during your stay. We’re told noise won’t be an issue, but wanted to keep you informed to avoid any surprises. If you encounter any concerns during your stay, please let us know.
-        <br />
-        <br />
-        Thanks for your understanding!
-        `,
-        author: "Besty AI",
-      },
-      {
-        text: `Okay send it`,
-        author: "Sam",
-      },
-      { text: "ACTION COMPLETE: Message sent to 12 guests staying in units #405, #204 and the 2BR Penthouse.", author: "alert" },
-      {
-        text: `Done!`,
         author: "Besty AI",
       },
     ],
