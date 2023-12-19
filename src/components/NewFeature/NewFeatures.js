@@ -34,7 +34,7 @@ export const NewFeatures = () => {
       </div>
       <div className={styles.wrapper}>
         <Tabs tabsConfig={tabsConfig} activeTab={activeTab} setActiveTab={setActiveTab} />
-        <Content tabsConfig={tabsConfig} activeTab={activeTab} autoPlay={false} isDefaultMode={true} />
+        <Content tabsConfig={tabsConfig} activeTab={activeTab} autoPlay={false} isDefaultMode={false} />
       </div>
     </div>
   );
