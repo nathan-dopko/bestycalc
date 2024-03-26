@@ -62,10 +62,10 @@ export const BestyCalcR = () => {
         <img src={logo} alt="logo" className="logo" />
       </div> */}
       <div className="headerWrapper">
-        <div className="title">Pricing Calculator</div>
-        <button onClick={() => setIsYearly(!isYearly)} className="yearlySwapBtn">
+        {/* <div className="title">Pricing Calculator</div> */}
+        {/* <button onClick={() => setIsYearly(!isYearly)} className="yearlySwapBtn">
           {isYearly ? "Switch to Monthly" : "Switch to Yearly"}
-        </button>
+        </button> */}
       </div>
       <div className="inputWrapper">
         <input
@@ -75,6 +75,9 @@ export const BestyCalcR = () => {
           className="listingInput"
           placeholder="Enter Listing Count"
         />
+        <button onClick={() => setIsYearly(!isYearly)} className="yearlySwapBtn">
+          {isYearly ? "Switch to Monthly" : "Switch to Yearly"}
+        </button>
       </div>
       <table className="pricingTable">
         <thead>
