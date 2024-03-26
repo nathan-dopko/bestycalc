@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
 import logo from "./logo.png";
+import numeral from "numeral";
 
 export const BestyCalcR = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -17,7 +18,8 @@ export const BestyCalcR = () => {
     { from: 101, to: 200, cost: "$6", price: 6 },
     { from: 201, to: 400, cost: "$5", price: 5 },
     { from: 401, to: 500, cost: "$4", price: 4 },
-    { from: 500, to: "", cost: "Contact Us", price: null },
+    { from: 500, to: 999, cost: "$3.50", price: 3.5 },
+    { from: 1000, to: Infinity, cost: "$3", price: 3 },
   ];
 
   const calculateCostAndBreakdown = () => {
@@ -43,7 +45,7 @@ export const BestyCalcR = () => {
         remainingListings -= consumed;
       }
     }
-    setTotalCost(remainingListings > 0 ? "Contact Us" : isYearly ? cost * 0.85 : cost);
+    setTotalCost(isYearly ? cost * 0.85 : cost);
     setListingBreakdown(breakdown);
     if (listings > 0) {
       setAvgCost(isYearly ? (cost / listings) * 0.85 : cost / listings);
@@ -86,28 +88,22 @@ export const BestyCalcR = () => {
         <tbody>
           {pricingData.map((row, index) => (
             <tr key={index}>
-              <td className="tableData">{row.from === 500 ? "500+" : `${row.from} - ${row.to}`}</td>
+              <td className="tableData">{row.from === 1000 ? "1000+" : `${row.from} - ${row.to}`}</td>
               <td className="tableData">{row.cost}</td>
-              <td className="tableData">{listings > 500 && row.from === 500 ? "-" : listingBreakdown[row.from] || "-"}</td>
-              <td className="tableData">{listings > 500 && row.from === 500 ? "-" : listingBreakdown[row.from] ? `$${listingBreakdown[row.from] * row.price}` : "-"}</td>
+              {/* <td className="tableData">{listings > 500 && row.from === 500 ? "-" : listingBreakdown[row.from] || "-"}</td>
+              <td className="tableData">{listings > 500 && row.from === 500 ? "-" : listingBreakdown[row.from] ? `$${listingBreakdown[row.from] * row.price}` : "-"}</td> */}
+              <td className="tableData">{listingBreakdown[row.from] || "-"}</td>
+              <td className="tableData">{listingBreakdown[row.from] ? `$${listingBreakdown[row.from] * row.price}` : "-"}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <div className="contentWrapper">
-        {listings > 500 ? (
-          <a className="contactUsBtn" href="https://calendly.com/samfrombloom/intro-to-besty-ai" target="_blank" rel="noreferrer">
-            Contact Us
-          </a>
-        ) : (
-          <div className="avgListings">Avg Listing Cost: ${avgCost ? (listings > 500 ? "Contact Us" : `${avgCost.toFixed(2)}`) : "0"}</div>
-        )}
-        {listings > 500 ? null : (
-          <div className="avgListings">
-            Monthly Cost: {totalCost ? (listings > 500 ? "Contact Us" : totalCost === "Contact Us" ? totalCost : `$${totalCost.toLocaleString()}`) : "$0"}
-            {isYearly ? <div className="discountLabel">15% off Yearly</div> : null}
-          </div>
-        )}
+        <div className="avgListings">Avg Listing Cost: ${avgCost ? `${numeral(avgCost).format("0.00")}` : "0"}</div>
+        <div className="avgListings">
+          Monthly Cost: {totalCost ? `$${numeral(totalCost).format("0.00a")}` : "$0"}
+          {isYearly ? <div className="discountLabel">15% off Yearly</div> : null}
+        </div>
       </div>
       <a className="freeTrialButton" href="http://app.getbesty.ai/signup" target="_blank" rel="noreferrer">
         Start 14-day free trial
