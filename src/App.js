@@ -8,7 +8,7 @@ import { NewFeatures } from "./components/NewFeature/NewFeatures";
 const CompWrapper = () => {
   return (
     <div className="compWrapper">
-      <Card />
+      {/* <Card /> */}
       <BestyCalcR />
     </div>
   );
