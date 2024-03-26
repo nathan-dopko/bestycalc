@@ -102,9 +102,9 @@ export const BestyCalcR = () => {
         </tbody>
       </table>
       <div className="contentWrapper">
-        <div className="avgListings">Avg Listing Cost: ${avgCost ? `${numeral(avgCost).format("0.00")}` : "0"}</div>
+        <div className="avgListings">Avg Cost: ${avgCost ? `${numeral(avgCost).format("0.00")}` : "0"}</div>
         <div className="avgListings">
-          Monthly Cost: {totalCost ? `$${numeral(totalCost).format("0.00a")}` : "$0"}
+          Monthly: {totalCost ? `$${numeral(totalCost).format("0.00a")}` : "$0"}
           {isYearly ? <div className="discountLabel">15% off Yearly</div> : null}
         </div>
       </div>

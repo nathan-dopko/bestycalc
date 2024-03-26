@@ -88,7 +88,7 @@ input[type="number"] {
   /* background-color: #0099fe; */
   background-color: transparent;
   border: 1px solid rgba(172, 172, 172, 0.636);
-
+  font-size: 14px;
   position: relative;
   white-space: nowrap;
 }
@@ -193,7 +193,7 @@ input[type="number"] {
 
   .contentWrapper {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     width: 100%;
     height: fit-content;
     gap: 8px;
@@ -204,7 +204,7 @@ input[type="number"] {
   }
 
   .avgListings {
-    width: auto;
+    width: 100%;
   }
 
   .freeTrialButton {
@@ -257,7 +257,7 @@ input[type="number"] {
 
   .contentWrapper {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     width: 100%;
     height: fit-content;
     gap: 8px;
@@ -278,7 +278,7 @@ input[type="number"] {
   }
 
   .avgListings {
-    width: auto;
+    width: 100%;
   }
 
   .pricingTable {
