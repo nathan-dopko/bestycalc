@@ -186,7 +186,7 @@ input[type="number"] {
 
 @media (max-width: 900px) {
   .calculatorWrapper {
-    padding: 30px;
+    padding: 8px;
     width: 100%;
   }
 
@@ -238,7 +238,7 @@ input[type="number"] {
 
 @media (max-width: 550px) {
   .calculatorWrapper {
-    padding: 30px;
+    padding: 8px;
   }
 
   .headerWrapper {
