@@ -7,10 +7,9 @@ import { NewFeatures } from "./components/NewFeature/NewFeatures";
 
 const CompWrapper = () => {
   return (
-    <div className="aspectRatioWrapper">
-      <div className="responsiveComponent">
-        <BestyCalcR />
-      </div>
+    <div className="compWrapper">
+      {/* <Card /> */}
+      <BestyCalcR />
     </div>
   );
 };
