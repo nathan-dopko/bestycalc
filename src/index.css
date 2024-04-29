@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.aspectRatioWrapper {
+  position: relative;
+  width: 100%; /* Takes the full width of the parent */
+  padding-top: 56.25%; /* Aspect ratio of 16:9 */
+  background-color: #f0f0f0; /* Optional, just for visibility */
+}
+
+.responsiveComponent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white; /* Optional, just for visibility */
+}
