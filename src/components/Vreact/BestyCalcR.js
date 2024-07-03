@@ -45,10 +45,10 @@ export const BestyCalcR = () => {
         remainingListings -= consumed;
       }
     }
-    setTotalCost(isYearly ? cost * 0.85 : cost);
+    setTotalCost(isYearly ? cost * 0.8 : cost);
     setListingBreakdown(breakdown);
     if (listings > 0) {
-      setAvgCost(isYearly ? (cost / listings) * 0.85 : cost / listings);
+      setAvgCost(isYearly ? (cost / listings) * 0.8 : cost / listings);
     }
   };
 
@@ -105,11 +105,11 @@ export const BestyCalcR = () => {
         <div className="avgListings">Avg Cost: ${avgCost ? `${numeral(avgCost).format("0.00")}` : "0"}</div>
         <div className="avgListings">
           Monthly: {totalCost ? `$${numeral(totalCost).format("0.00a")}` : "$0"}
-          {isYearly ? <div className="discountLabel">15% off Yearly</div> : null}
+          {isYearly ? <div className="discountLabel">20% off Yearly</div> : null}
         </div>
       </div>
       <a className="freeTrialButton" href="http://app.getbesty.ai/signup" target="_blank" rel="noreferrer">
-        Start 14-day free trial
+        Start 7-day free trial
       </a>
     </div>
   );
