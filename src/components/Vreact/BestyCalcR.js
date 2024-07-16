@@ -109,7 +109,7 @@ export const BestyCalcR = () => {
         </div>
       </div>
       <a className="freeTrialButton" href="http://app.getbesty.ai/signup" target="_blank" rel="noreferrer">
-        Start 7-day free trial
+        Start free trial
       </a>
     </div>
   );

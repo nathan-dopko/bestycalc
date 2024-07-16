@@ -9,7 +9,7 @@ export const Card = () => {
     "Embedded in your PMS",
     "AI-Generated tasks",
     "No setup required",
-    "14-day free trial",
+    "Free trial",
     "No credit card required",
     "Mobile app",
   ];
