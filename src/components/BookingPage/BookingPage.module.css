@@ -30,8 +30,8 @@
 }
 
 .bookingTitle {
-  font-size: 36px;
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 700;
   color: #222;
   margin-bottom: 10px;
 }
@@ -40,6 +40,7 @@
   font-size: 18px;
   color: #555;
   margin-bottom: 20px;
+  max-width: 450px;
 }
 
 .bookingForm {
@@ -71,7 +72,7 @@ input[type="number"] {
   padding: 16px;
   font-size: 16px;
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   box-sizing: border-box;
   border: 2px solid #ddd;
   border-radius: 12px;
@@ -93,7 +94,7 @@ input[type="number"]::placeholder {
   padding: 14px 20px;
   font-size: 18px;
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   background: linear-gradient(135deg, #0099fe, #005eff);
   color: white;
   border: none;
