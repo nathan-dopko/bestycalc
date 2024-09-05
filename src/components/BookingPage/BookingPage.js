@@ -29,7 +29,7 @@ export const BookingPage = () => {
       <div className={styles.bookingPage}>
         <img src="https://www.hostfully.com/wp-content/uploads/2022/09/besty-logo-better-space-1.png" alt="FAVR Logo" className={styles.logo} />
         {/* <div className={styles.subtitle}>FAVR Xtravaganza</div> */}
-        <div className={styles.bookingTitle}>Book a demo with Besty AI</div>
+        <div className={styles.bookingTitle}>Book a demo</div>
         <p className={styles.description}>Enter how many listings you have so we can set you up with the best account manager.</p>
         <form className={styles.bookingForm} onSubmit={handleSubmit}>
           <div className={styles.formItem}>

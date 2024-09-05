@@ -18,7 +18,7 @@
 }
 
 .logo {
-  width: 300px;
+  width: 200px;
   /* margin-bottom: 10px; */
 }
 
@@ -90,22 +90,39 @@ input[type="number"]::placeholder {
   color: #bbb;
 }
 
+@keyframes gradientWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .submitBtn {
   padding: 14px 20px;
   font-size: 18px;
   width: 100%;
   max-width: 450px;
-  background: linear-gradient(135deg, #0099fe, #005eff);
+  font-weight: 600;
+  background: linear-gradient(270deg, #0099fe, #82cdff);
+  background-size: 400% 400%;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 153, 254, 0.3);
   transition: all 0.3s ease;
+  animation: gradientWave 15s ease infinite;
 }
 
 .submitBtn:hover {
-  background: linear-gradient(135deg, #005eff, #003fbd);
+  background: linear-gradient(270deg, #0099fe, #82cdff);
+  background-size: 400% 400%;
+  animation: gradientWave 15s ease infinite;
   box-shadow: 0 6px 15px rgba(0, 153, 254, 0.4);
   transform: translateY(-2px);
 }
