@@ -16,7 +16,7 @@ export const BookingPage = () => {
     if (parseInt(listings) < 30) {
       hubspotLink = "https://meetings.hubspot.com/ellie-mccoy/besty-ai-demo";
     } else if (parseInt(listings) >= 31 && parseInt(listings) <= 99) {
-      hubspotLink = "https://meetings.hubspot.com/nathan-dopko/besty-ai-demo";
+      hubspotLink = "https://meetings.hubspot.com/glen-mcclintock/besty-ai-demo";
     } else if (parseInt(listings) >= 100) {
       hubspotLink = "https://meetings.hubspot.com/sam-dundas/besty-ai-demo";
     }
