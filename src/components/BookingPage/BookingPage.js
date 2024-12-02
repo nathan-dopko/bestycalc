@@ -14,7 +14,7 @@ export const BookingPage = () => {
     let hubspotLink = "";
 
     if (parseInt(listings) < 30) {
-      hubspotLink = "https://meetings.hubspot.com/ellie-mccoy/besty-ai-demo";
+      hubspotLink = "https://meetings.hubspot.com/nathan-dopko/besty-ai-demo";
     } else if (parseInt(listings) >= 31 && parseInt(listings) <= 99) {
       hubspotLink = "https://meetings.hubspot.com/glen-mcclintock/besty-ai-demo";
     } else if (parseInt(listings) >= 100) {
@@ -28,7 +28,6 @@ export const BookingPage = () => {
     <div className={styles.wrapper}>
       <div className={styles.bookingPage}>
         <img src="https://www.hostfully.com/wp-content/uploads/2022/09/besty-logo-better-space-1.png" alt="FAVR Logo" className={styles.logo} />
-        {/* <div className={styles.subtitle}>FAVR Xtravaganza</div> */}
         <div className={styles.bookingTitle}>Book a demo</div>
         <p className={styles.description}>Please enter the number of listings you operate so we can route you to the appropriate account manager.</p>
         <form className={styles.bookingForm} onSubmit={handleSubmit}>
