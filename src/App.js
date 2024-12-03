@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Card } from "./components/Vreact/Card/Card";
 import { NewFeatures } from "./components/NewFeature/NewFeatures";
 import { BookingPage } from "./components/BookingPage/BookingPage";
+import { BookingPageConf } from "./components/BookingPageConf/BookingPage";
 
 const CompWrapper = () => {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<CompWrapper />} />
           <Route path="/copilot" element={<NewFeatures />} />
           <Route path="/demo-booking" element={<BookingPage />} />
+          <Route path="/conference" element={<BookingPageConf />} />
         </Routes>
       </div>
     </Router>
