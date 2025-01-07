@@ -25,106 +25,73 @@ const Report = () => {
 
   return (
     <div className={`report-builder ${darkMode ? "dark-mode" : ""}`}>
-      <h1 className="title">Report Builder</h1>
-
-      <div className="form-group">
-        <label className="form-label" htmlFor="reportName">
-          Report Name
-        </label>
-        <input
-          id="reportName"
-          className="form-input"
-          type="text"
-          value={reportName}
-          onChange={(e) => setReportName(e.target.value)}
-          placeholder="Enter Report Name"
-        />
+      <div className="report-header">
+        <h1>Report Builder</h1>
+        <p>besty ai report builder v1</p>
       </div>
 
-      <div className="form-group">
-        <label className="form-label" htmlFor="currency">
-          Currency
-        </label>
-        <select
-          id="currency"
-          className="form-select"
-          value={currency}
-          onChange={(e) => setCurrency(e.target.value)}
-        >
-          <option value="$">USD ($)</option>
-          <option value="€">EUR (€)</option>
-          <option value="£">GBP (£)</option>
-          <option value="A$">AUD (A$)</option>
-          <option value="₹">INR (₹)</option>
-        </select>
-      </div>
+      <div className="form-container">
+        <div className="form-group">
+          <label>Report Name</label>
+          <input type="text" value={reportName} onChange={(e) => setReportName(e.target.value)} placeholder="Enter report name" />
+        </div>
 
-      <div className="form-group">
-        <label className="form-label" htmlFor="uploadLogo">
-          Upload Logo
-        </label>
-        <FileUpload
-          onFileUpload={(file) => {
-            const reader = new FileReader();
-            reader.onload = () => setLogo(reader.result);
-            reader.readAsDataURL(file);
-          }}
-        />
-        {logo && <img src={logo} alt="Uploaded Logo" className="uploaded-logo" />}
-      </div>
+        <div className="form-group">
+          <label>Currency</label>
+          <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+            <option value="$">USD ($)</option>
+            <option value="€">EUR (€)</option>
+            <option value="£">GBP (£)</option>
+            <option value="A$">AUD (A$)</option>
+            <option value="₹">INR (₹)</option>
+          </select>
+        </div>
 
-      <div className="form-group">
-        <label className="form-label" htmlFor="uploadCSV">
-          Upload CSV
-        </label>
-        <FileUpload
-          onFileUpload={(file) => {
-            Papa.parse(file, {
-              header: true,
-              complete: (results) => {
-                const processedData = processCSVData(results.data);
-                setCsvData(processedData);
-              },
-            });
-          }}
-        />
-      </div>
+        <div className="form-group">
+          <label>Upload Logo</label>
+          <FileUpload
+            onFileUpload={(file) => {
+              const reader = new FileReader();
+              reader.onload = () => setLogo(reader.result);
+              reader.readAsDataURL(file);
+            }}
+          />
+          {logo && <img src={logo} alt="Uploaded Logo" className="preview" />}
+        </div>
 
-      <div className="form-group">
-        <label className="form-label" htmlFor="colorPicker">
-          Choose Color
-        </label>
-        <input
-          id="colorPicker"
-          type="color"
-          value={color}
-          onChange={(e) => setColor(e.target.value)}
-          className="form-color-picker"
-        />
-      </div>
+        <div className="form-group">
+          <label>Upload CSV</label>
+          <FileUpload
+            onFileUpload={(file) => {
+              Papa.parse(file, {
+                header: true,
+                complete: (results) => {
+                  const processedData = processCSVData(results.data);
+                  setCsvData(processedData);
+                },
+              });
+            }}
+          />
+        </div>
 
-      <div className="form-group">
-        <label className="form-label" htmlFor="darkMode">
-          Dark Mode
-        </label>
-        <input
-          id="darkMode"
-          type="checkbox"
-          checked={darkMode}
-          onChange={(e) => setDarkMode(e.target.checked)}
-          className="form-checkbox"
-        />
-      </div>
+        <div className="form-group">
+          <label>Choose Color</label>
+          <div className="color-picker">
+            <input type="color" value={color} onChange={(e) => setColor(e.target.value)} />
+            <span style={{ backgroundColor: color }} className="color-preview" />
+          </div>
+        </div>
 
-      <div className="form-actions">
-        <GenerateSlides
-          logo={logo}
-          csvData={csvData}
-          reportName={reportName}
-          currency={currency}
-          color={color}
-          darkMode={darkMode}
-        />
+        <div className="form-group">
+          <label>Dark Mode</label>
+          <div className="toggle-switch">
+            <input type="checkbox" checked={darkMode} onChange={(e) => setDarkMode(e.target.checked)} />
+          </div>
+        </div>
+
+        <div className="form-actions">
+          <GenerateSlides logo={logo} csvData={csvData} reportName={reportName} currency={currency} color={color} darkMode={darkMode} />
+        </div>
       </div>
     </div>
   );

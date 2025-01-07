@@ -8,23 +8,21 @@ const GenerateSlides = ({ logo, csvData, reportName, currency, color = "#9C7F6C"
 
     const titleSlide = pptx.addSlide();
 
-    // Add background image (ensure the image data is in base64 format)
     titleSlide.addImage({
       path: darkMode
         ? "https://raw.githubusercontent.com/nathan-dopko/images/refs/heads/main/DarkBG.png"
         : "https://raw.githubusercontent.com/nathan-dopko/images/refs/heads/main/LightBG.png",
-      x: 0, // Start at the top-left corner
+      x: 0,
       y: 0,
-      w: 10, // Full slide width in inches (default width of pptx slides)
-      h: 5.63, // Full slide height in inches (default height of pptx slides)
+      w: 10,
+      h: 5.63,
     });
 
-    // Add subtitle
     titleSlide.addText(reportName || "ROI Report", {
       x: 0.95,
       y: 2.5,
       fontSize: 30,
-      color: darkMode ? "white" : "#00000",
+      color: darkMode ? "#FFFFFF" : "#000000", // White for dark mode, black for light mode
       bold: true,
     });
 
@@ -33,19 +31,18 @@ const GenerateSlides = ({ logo, csvData, reportName, currency, color = "#9C7F6C"
         data: logo,
         x: 1.1,
         y: 3,
-        h: 1,
+        // h: 1,
         w: 4,
       });
     }
 
-    // Sort and filter the top 8 conversions
     const sortedData = csvData
       .map((row) => ({
         ...row,
-        Amount: parseFloat(row.Amount.replace(/[^0-9.-]+/g, "")) || 0, // Convert Amount to number
+        Amount: parseFloat(row.Amount.replace(/[^0-9.-]+/g, "")) || 0,
       }))
-      .sort((a, b) => b.Amount - a.Amount) // Sort by Amount (descending)
-      .slice(0, 8); // Take the top 8
+      .sort((a, b) => b.Amount - a.Amount)
+      .slice(0, 8);
 
     // Calculate totals
     const totalConversions = csvData.length;
@@ -108,11 +105,10 @@ const GenerateSlides = ({ logo, csvData, reportName, currency, color = "#9C7F6C"
       italic: true,
     });
 
-    // Add table for top 8 conversions
     slide.addTable(tableData, {
       x: 0.6,
       y: 1.7,
-      w: 5.5, // Reduced table width
+      w: 5.5,
       fontSize: 11,
       align: "left",
       valign: "middle",
@@ -194,7 +190,7 @@ const GenerateSlides = ({ logo, csvData, reportName, currency, color = "#9C7F6C"
         data: logo,
         x: 8.8,
         y: 5.1,
-        h: 0.4,
+        h: 0.6,
       });
     }
 
