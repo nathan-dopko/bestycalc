@@ -4,20 +4,24 @@ import styles from "./BookingPage.module.css";
 export const BookingPage = () => {
   const [listings, setListings] = useState("");
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setListings(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     let hubspotLink = "";
 
-    if (parseInt(listings) < 30) {
+    const listingCount = parseInt(listings);
+
+    if (listingCount <= 8) {
+      hubspotLink = "https://us06web.zoom.us/webinar/register/WN_lejjIQsUT1GIrFSt6WK0nQ#/registration";
+    } else if (listingCount <= 30) {
       hubspotLink = "https://meetings.hubspot.com/nathan-dopko/besty-ai-demo";
-    } else if (parseInt(listings) >= 31 && parseInt(listings) <= 99) {
+    } else if (listingCount <= 99) {
       hubspotLink = "https://meetings.hubspot.com/glen-mcclintock/besty-ai-demo";
-    } else if (parseInt(listings) >= 100) {
+    } else {
       hubspotLink = "https://meetings.hubspot.com/sam-dundas/besty-ai-demo";
     }
 
@@ -27,9 +31,9 @@ export const BookingPage = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.bookingPage}>
-        <img src="https://www.hostfully.com/wp-content/uploads/2022/09/besty-logo-better-space-1.png" alt="FAVR Logo" className={styles.logo} />
+        <img src="https://www.hostfully.com/wp-content/uploads/2022/09/besty-logo-better-space-1.png" alt="Besty AI Logo" className={styles.logo} />
         <div className={styles.bookingTitle}>Book a demo</div>
-        <p className={styles.description}>Please enter the number of listings you operate so we can route you to the appropriate account manager.</p>
+        <p className={styles.description}>Please enter the number of listings you operate.</p>
         <form className={styles.bookingForm} onSubmit={handleSubmit}>
           <div className={styles.formItem}>
             <label htmlFor="listings">Number of Listings</label>
