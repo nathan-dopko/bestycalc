@@ -39,7 +39,7 @@ const GenerateSlides = ({ logo, csvData, reportName, currency, color = "#9C7F6C"
     const sortedData = csvData
       .map((row) => ({
         ...row,
-        Amount: parseFloat(row.Amount.replace(/[^0-9.-]+/g, "")) || 0,
+        Amount: row.Amount ? parseFloat(String(row.Amount).replace(/[^0-9.-]+/g, "")) || 0 : 0,
       }))
       .sort((a, b) => b.Amount - a.Amount)
       .slice(0, 8);
@@ -47,7 +47,7 @@ const GenerateSlides = ({ logo, csvData, reportName, currency, color = "#9C7F6C"
     // Calculate totals
     const totalConversions = csvData.length;
     const totalAmount = csvData.reduce((sum, row) => {
-      const amount = parseFloat(row.Amount.replace(/[^0-9.-]+/g, "")) || 0;
+      const amount = row.Amount ? parseFloat(String(row.Amount).replace(/[^0-9.-]+/g, "")) || 0 : 0;
       return sum + amount;
     }, 0);
 

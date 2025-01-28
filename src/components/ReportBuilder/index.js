@@ -59,8 +59,18 @@ const Report = () => {
           {logo && <img src={logo} alt="Uploaded Logo" className="preview" />}
         </div>
 
-        <div className="form-group">
+        <div className="form-group csv-upload">
           <label>Upload CSV</label>
+          <div className="csv-instructions">
+            <p>
+              <strong>Ensure your CSV contains the EXACT columns:</strong>
+            </p>
+            <ul>
+              <li>"Guest name"</li>
+              <li>"Date Sent"</li>
+              <li>"Amount"</li>
+            </ul>
+          </div>
           <FileUpload
             onFileUpload={(file) => {
               Papa.parse(file, {
