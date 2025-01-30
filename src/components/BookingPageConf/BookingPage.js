@@ -8,17 +8,17 @@ export const BookingPageConf = () => {
   const people = [
     {
       name: "Sam Dundas",
-      link: "https://meetings.hubspot.com/sam-dundas/besty-ai-demo-conference",
+      link: "https://meetings.hubspot.com/sam-dundas/besty-ai-demo",
       img: Sam,
     },
     {
       name: "Edward Shorter",
-      link: "https://meetings.hubspot.com/edward206/besty-ai-demo-conference",
+      link: "https://meetings.hubspot.com/edward206/besty-ai-demo",
       img: Ed,
     },
     {
       name: "Glen McClintock",
-      link: "https://meetings.hubspot.com/glen-mcclintock/besty-ai-demo-conference",
+      link: "https://meetings.hubspot.com/glen-mcclintock/besty-ai-demo",
       img: Glen,
     },
   ];
