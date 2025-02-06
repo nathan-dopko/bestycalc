@@ -3,24 +3,28 @@ import "./styles.css";
 import logo from "./logo.png";
 import numeral from "numeral";
 
+const pricingData = [
+  { from: 1, to: 10, cost: "$12", price: 12 },
+  { from: 11, to: 20, cost: "$10", price: 10 },
+  { from: 21, to: 50, cost: "$8", price: 8 },
+  { from: 51, to: 100, cost: "$7", price: 7 },
+  { from: 101, to: 200, cost: "$6", price: 6 },
+  { from: 201, to: 400, cost: "$5", price: 5 },
+  { from: 401, to: 500, cost: "$4", price: 4 },
+  { from: 500, to: 999, cost: "$3.50", price: 3.5 },
+  { from: 1000, to: Infinity, cost: "$3", price: 3 },
+];
+
 export const BestyCalcR = () => {
+  return <BestyCalc pricingData={pricingData} />;
+};
+
+export const BestyCalc = ({ pricingData }) => {
   const [isYearly, setIsYearly] = useState(false);
   const [listings, setListings] = useState(null);
   const [totalCost, setTotalCost] = useState(null);
   const [listingBreakdown, setListingBreakdown] = useState({});
   const [avgCost, setAvgCost] = useState(null);
-
-  const pricingData = [
-    { from: 1, to: 10, cost: "$12", price: 12 },
-    { from: 11, to: 20, cost: "$10", price: 10 },
-    { from: 21, to: 50, cost: "$8", price: 8 },
-    { from: 51, to: 100, cost: "$7", price: 7 },
-    { from: 101, to: 200, cost: "$6", price: 6 },
-    { from: 201, to: 400, cost: "$5", price: 5 },
-    { from: 401, to: 500, cost: "$4", price: 4 },
-    { from: 500, to: 999, cost: "$3.50", price: 3.5 },
-    { from: 1000, to: Infinity, cost: "$3", price: 3 },
-  ];
 
   const calculateCostAndBreakdown = () => {
     if (listings === null) {

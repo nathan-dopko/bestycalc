@@ -6,6 +6,7 @@ import { NewFeatures } from "./components/NewFeature/NewFeatures";
 import { BookingPage } from "./components/BookingPage/BookingPage";
 import { BookingPageConf } from "./components/BookingPageConf/BookingPage";
 import Report from "./components/ReportBuilder/index";
+import { BFFCalc } from "./components/BFFCalc/BFFCalc";
 
 const CompWrapper = () => {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/demo-booking" element={<BookingPage />} />
           <Route path="/conference" element={<BookingPageConf />} />
           <Route path="/report" element={<Report />} />
+          <Route path="/bffcalc" element={<BFFCalc />} />
         </Routes>
       </div>
     </Router>
