@@ -95,10 +95,8 @@ export const BestyCalc = ({ pricingData }) => {
         <tbody>
           {pricingData.map((row, index) => (
             <tr key={index}>
-              <td className="tableData">{row.from === 1000 ? "1000+" : `${row.from} - ${row.to}`}</td>
+              <td className="tableData">{row.from === 1000 || row.to === Infinity ? `${row.from}+` : `${row.from} - ${row.to}`}</td>
               <td className="tableData">{row.cost}</td>
-              {/* <td className="tableData">{listings > 500 && row.from === 500 ? "-" : listingBreakdown[row.from] || "-"}</td>
-              <td className="tableData">{listings > 500 && row.from === 500 ? "-" : listingBreakdown[row.from] ? `$${listingBreakdown[row.from] * row.price}` : "-"}</td> */}
               <td className="tableData">{listingBreakdown[row.from] || "-"}</td>
               <td className="tableData">{listingBreakdown[row.from] ? `$${listingBreakdown[row.from] * row.price}` : "-"}</td>
             </tr>
