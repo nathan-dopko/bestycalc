@@ -1,0 +1,87 @@
+.calculatorWrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  text-align: center;
+}
+
+.calculatorTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.listingInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.pricingTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pricingTable th,
+.pricingTable td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.pricingTable th {
+  font-size: 18px;
+  font-weight: bold;
+  background: #f8f8f8;
+}
+
+.pricingTable td {
+  font-size: 16px;
+}
+
+.copyButton {
+  background: #334354;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  margin-left: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 14px;
+}
+
+.copyButton:hover {
+  background: #334354;
+}
+
+.copyButton:active {
+  background: #334354;
+}
+
+@media (max-width: 768px) {
+  .calculatorWrapper {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .pricingTable th,
+  .pricingTable td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .copyButton {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import numeral from "numeral";
-import "./BestyPricingCalculator.css";
+import styles from "./BestyPricingCalculator.module.css";
 
 const calculatePrice = (listings, option) => {
   if (listings === 0) return 0;
@@ -35,8 +35,8 @@ const copyToClipboard = (text) => {
 };
 
 const CopyButton = ({ value }) => (
-  <button className="copyButton" onClick={() => copyToClipboard(value)}>
-    📋
+  <button className={styles.copyButton} onClick={() => copyToClipboard(value)}>
+    copy
   </button>
 );
 
@@ -58,10 +58,10 @@ export const BestyPricingCalculator = () => {
   }, [listings]);
 
   return (
-    <div className="calculatorWrapper">
-      <h2 className="calculatorTitle">Besty Pricing Calculator</h2>
-      <input type="number" value={listings} onChange={(e) => setListings(Number(e.target.value) || 0)} className="listingInput" placeholder="Enter Listing Count" />
-      <table className="pricingTable">
+    <div className={styles.calculatorWrapper}>
+      <h2 className={styles.calculatorTitle}>Besty Pricing Calculator</h2>
+      <input type="number" value={listings} onChange={(e) => setListings(Number(e.target.value) || 0)} className={styles.listingInput} placeholder="Enter Listing Count" />
+      <table className={styles.pricingTable}>
         <thead>
           <tr>
             <th></th>
@@ -91,19 +91,19 @@ export const BestyPricingCalculator = () => {
           <tr>
             <td>Quarterly Price</td>
             <td>
-              ${numeral(monthlyCost1 * 3).format("0,0.00")} <CopyButton value={numeral(monthlyCost1 * 3).format("0,0.00")} />
+              ${numeral(monthlyCost1 * 0.95).format("0,0.00")} <CopyButton value={numeral(monthlyCost1 * 0.95).format("0,0.00")} />
             </td>
             <td>
-              ${numeral(monthlyCost2 * 3).format("0,0.00")} <CopyButton value={numeral(monthlyCost2 * 3).format("0,0.00")} />
+              ${numeral(monthlyCost2 * 0.95).format("0,0.00")} <CopyButton value={numeral(monthlyCost2 * 0.95).format("0,0.00")} />
             </td>
           </tr>
           <tr>
             <td>Annual Price</td>
             <td>
-              ${numeral(monthlyCost1 * 12).format("0,0.00")} <CopyButton value={numeral(monthlyCost1 * 12).format("0,0.00")} />
+              ${numeral(monthlyCost1 * 0.9).format("0,0.00")} <CopyButton value={numeral(monthlyCost1 * 0.9).format("0,0.00")} />
             </td>
             <td>
-              ${numeral(monthlyCost2 * 12).format("0,0.00")} <CopyButton value={numeral(monthlyCost2 * 12).format("0,0.00")} />
+              ${numeral(monthlyCost2 * 0.9).format("0,0.00")} <CopyButton value={numeral(monthlyCost2 * 0.9).format("0,0.00")} />
             </td>
           </tr>
           <tr>
