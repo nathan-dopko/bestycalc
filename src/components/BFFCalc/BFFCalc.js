@@ -42,25 +42,28 @@ const CopyButton = ({ value }) => (
 
 export const BestyPricingCalculator = () => {
   const [listings, setListings] = useState(0);
+  const [discount, setDiscount] = useState(0);
   const [monthlyCost1, setMonthlyCost1] = useState(0);
   const [monthlyCost2, setMonthlyCost2] = useState(0);
   const [costPerListing1, setCostPerListing1] = useState(0);
   const [costPerListing2, setCostPerListing2] = useState(0);
 
   useEffect(() => {
-    const newMonthlyCost1 = calculatePrice(listings, "option1");
-    const newMonthlyCost2 = calculatePrice(listings, "option2");
+    const newMonthlyCost1 = calculatePrice(listings, "option1") * (1 - discount / 100);
+    const newMonthlyCost2 = calculatePrice(listings, "option2") * (1 - discount / 100);
 
     setMonthlyCost1(newMonthlyCost1);
     setMonthlyCost2(newMonthlyCost2);
     setCostPerListing1(listings > 0 ? newMonthlyCost1 / listings : 0);
     setCostPerListing2(listings > 0 ? newMonthlyCost2 / listings : 0);
-  }, [listings]);
+  }, [listings, discount]);
 
   return (
     <div className={styles.calculatorWrapper}>
       <h2 className={styles.calculatorTitle}>Besty Pricing Calculator</h2>
-      <input type="number" value={listings} onChange={(e) => setListings(Number(e.target.value) || 0)} className={styles.listingInput} placeholder="Enter Listing Count" />
+      Listings <input type="number" value={listings} onChange={(e) => setListings(Number(e.target.value) || 0)} className={styles.listingInput} placeholder="Enter Listing Count" />
+      Discount %{" "}
+      <input type="number" value={discount} onChange={(e) => setDiscount(Number(e.target.value) || 0)} className={styles.discountInput} placeholder="Enter Discount (%)" />
       <table className={styles.pricingTable}>
         <thead>
           <tr>
