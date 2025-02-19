@@ -1,0 +1,74 @@
+.calculatorWrapper {
+  margin: auto;
+  padding: 20px;
+  height: 100vh;
+  width: 100vw;
+  background: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.calculatorTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.listingInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.optionsWrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tableCell {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyButton {
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  border: 2px solid rgb(0, 123, 255);
+  border-radius: 10px;
+}
+
+.pricingTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pricingTable th,
+.pricingTable td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.pricingTable th {
+  background: #007bff;
+  color: white;
+}
+
+.costListingWrapper {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
