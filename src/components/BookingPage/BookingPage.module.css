@@ -7,6 +7,7 @@
   margin: 50px auto;
   text-align: center;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .wrapper {
@@ -18,8 +19,11 @@
 }
 
 .logo {
-  width: 200px;
-  /* margin-bottom: 10px; */
+  width: 120px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin-bottom: 0;
 }
 
 .subtitle {
@@ -30,16 +34,17 @@
 }
 
 .bookingTitle {
+  margin-top: 50px;
   font-size: 32px;
   font-weight: 700;
   color: #222;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 .description {
   font-size: 18px;
   color: #555;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   max-width: 450px;
 }
 
@@ -49,6 +54,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+  gap: 24px;
 }
 
 .formItem {
@@ -57,7 +63,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 label {
@@ -68,7 +73,7 @@ label {
   font-weight: bold;
 }
 
-input[type="number"] {
+input[type='number'] {
   padding: 16px;
   font-size: 16px;
   width: 100%;
@@ -80,13 +85,13 @@ input[type="number"] {
   transition: all 0.3s ease;
 }
 
-input[type="number"]:focus {
+input[type='number']:focus {
   outline: none;
   border-color: #0099fe;
   box-shadow: 0 4px 10px rgba(0, 153, 254, 0.2);
 }
 
-input[type="number"]::placeholder {
+input[type='number']::placeholder {
   color: #bbb;
 }
 
@@ -147,7 +152,7 @@ p {
     font-size: 16px;
   }
 
-  input[type="number"],
+  input[type='number'],
   .submitBtn {
     width: 100%;
     font-size: 16px;
@@ -172,7 +177,7 @@ p {
     font-size: 14px;
   }
 
-  input[type="number"],
+  input[type='number'],
   .submitBtn {
     width: 100%;
     font-size: 14px;

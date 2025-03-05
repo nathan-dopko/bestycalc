@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styles from './BookingPage.module.css';
 
 export const BookingPage = () => {
   const [listings, setListings] = useState('');
+  const [searchParams] = useSearchParams();
+  const showThanks = searchParams.get('thanks') == 'true';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setListings(e.target.value);
@@ -29,39 +32,52 @@ export const BookingPage = () => {
   };
 
   return (
-    <>
-      <div style={{ padding: '20px', textAlign: 'center', marginBottom: '20px' }}>
-        <h2 style={{ marginBottom: '15px', color: '#333' }}>Thank you for signing up to Besty!</h2>
-        <p style={{ fontSize: '16px', color: '#555' }}>To setup your account, please book a demo below:</p>
-        <div className={styles.wrapper}>
-          <div className={styles.bookingPage}>
-            <img
-              src="https://www.hostfully.com/wp-content/uploads/2022/09/besty-logo-better-space-1.png"
-              alt="Besty AI Logo"
-              className={styles.logo}
+    <div
+      style={{
+        textAlign: 'center',
+        position: 'relative',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
+      {showThanks && (
+        <>
+          <h2 style={{ color: '#333', marginBottom: '5px' }}>Thank you for signing up to Besty!</h2>
+          <p style={{ fontSize: '16px', color: '#555', marginBottom: '10px' }}>
+            To setup your account, please book a demo below:
+          </p>
+        </>
+      )}
+      <div
+        className={styles.wrapper}
+        style={{ padding: '20px', textAlign: 'center', minHeight: 'auto', position: 'relative' }}
+      >
+        <div className={styles.bookingPage}>
+          <img
+            src="https://www.hostfully.com/wp-content/uploads/2022/09/besty-logo-better-space-1.png"
+            alt="Besty AI Logo"
+            className={styles.logo}
+          />
+          <div className={styles.bookingTitle}>Book a demo</div>
+          <p className={styles.description}>Please enter the number of listings you operate.</p>
+          <form className={styles.bookingForm} onSubmit={handleSubmit}>
+            <input
+              type="number"
+              id="listings"
+              value={listings}
+              onChange={handleChange}
+              placeholder="Number of listings"
+              min="1"
+              required
             />
-            <div className={styles.bookingTitle}>Book a demo</div>
-            <p className={styles.description}>Please enter the number of listings you operate.</p>
-            <form className={styles.bookingForm} onSubmit={handleSubmit}>
-              <div className={styles.formItem}>
-                <label htmlFor="listings">Number of Listings</label>
-                <input
-                  type="number"
-                  id="listings"
-                  value={listings}
-                  onChange={handleChange}
-                  placeholder="Enter number of listings"
-                  min="1"
-                  required
-                />
-              </div>
-              <button className={styles.submitBtn} type="submit">
-                Submit
-              </button>
-            </form>
-          </div>
+            <button className={styles.submitBtn} type="submit">
+              Submit
+            </button>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };

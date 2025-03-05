@@ -1,12 +1,12 @@
-import "./App.css";
-import React from "react";
-import { BestyCalcR } from "./components/Vreact/BestyCalcR";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { NewFeatures } from "./components/NewFeature/NewFeatures";
-import { BookingPage } from "./components/BookingPage/BookingPage";
-import { BookingPageConf } from "./components/BookingPageConf/BookingPage";
-import Report from "./components/ReportBuilder/index";
-import { BestyPricingCalculator } from "./components/BFFCalc/BFFCalc";
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css';
+import { BestyPricingCalculator } from './components/BFFCalc/BFFCalc';
+import { BookingPage } from './components/BookingPage/BookingPage';
+import { BookingPageConf } from './components/BookingPageConf/BookingPage';
+import { NewFeatures } from './components/NewFeature/NewFeatures';
+import Report from './components/ReportBuilder/index';
+import { BestyCalcR } from './components/Vreact/BestyCalcR';
 
 const CompWrapper = () => {
   return (
