@@ -46,7 +46,7 @@ export const BookingPage = () => {
         <>
           <h2 style={{ color: '#333', marginBottom: '5px' }}>Thank you for signing up to Besty!</h2>
           <p style={{ fontSize: '16px', color: '#555', marginBottom: '10px' }}>
-            To setup your account, please book a demo below:
+            We're excited to announce Besty V2! Sign up for a demo below to see what's new:
           </p>
         </>
       )}
@@ -55,11 +55,6 @@ export const BookingPage = () => {
         style={{ padding: '20px', textAlign: 'center', minHeight: 'auto', position: 'relative' }}
       >
         <div className={styles.bookingPage}>
-          <img
-            src="https://www.hostfully.com/wp-content/uploads/2022/09/besty-logo-better-space-1.png"
-            alt="Besty AI Logo"
-            className={styles.logo}
-          />
           <div className={styles.bookingTitle}>Book a demo</div>
           <p className={styles.description}>Please enter the number of listings you operate.</p>
           <form className={styles.bookingForm} onSubmit={handleSubmit}>
