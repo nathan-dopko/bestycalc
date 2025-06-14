@@ -1,11 +1,169 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
+import { useReactTable, getCoreRowModel, getSortedRowModel, getFilteredRowModel, flexRender } from "@tanstack/react-table";
 import "./MessageStats.css";
+
+const DataTable = ({ data, columns, sorting, setSorting, globalFilter, setGlobalFilter, showPmsFilter = false }) => {
+  const [pmsFilter, setPmsFilter] = useState("all");
+
+  const pmsOptions = useMemo(() => {
+    if (!showPmsFilter) return [];
+    const uniquePms = [...new Set(data.map((row) => row["PMS"]))].filter(Boolean);
+    return ["all", ...uniquePms];
+  }, [data, showPmsFilter]);
+
+  const filteredData = useMemo(() => {
+    if (!showPmsFilter || pmsFilter === "all") return data;
+    return data.filter((row) => row["PMS"] === pmsFilter);
+  }, [data, pmsFilter, showPmsFilter]);
+
+  const table = useReactTable({
+    data: filteredData,
+    columns,
+    state: {
+      sorting,
+      globalFilter,
+    },
+    onSortingChange: setSorting,
+    onGlobalFilterChange: setGlobalFilter,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    enableSorting: true,
+    enableMultiSort: false,
+    sortDescFirst: false,
+    enableGlobalFilter: true,
+  });
+
+  return (
+    <div className="table-container">
+      <div className="table-controls">
+        <div className="filters">
+          {showPmsFilter && (
+            <select value={pmsFilter} onChange={(e) => setPmsFilter(e.target.value)} className="pms-filter">
+              {pmsOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option === "all" ? "All PMS" : option}
+                </option>
+              ))}
+            </select>
+          )}
+          <input value={globalFilter ?? ""} onChange={(e) => setGlobalFilter(e.target.value)} placeholder="Search all columns..." className="table-search" />
+        </div>
+      </div>
+      <table>
+        <thead>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <th
+                  key={header.id}
+                  onClick={header.column.getCanSort() ? header.column.getToggleSortingHandler() : undefined}
+                  className={header.column.getCanSort() ? "sortable" : ""}
+                  style={{ cursor: header.column.getCanSort() ? "pointer" : "default" }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                    {flexRender(header.column.columnDef.header, header.getContext())}
+                    {header.column.getCanSort() && (
+                      <span>
+                        {{
+                          asc: " 🔼",
+                          desc: " 🔽",
+                        }[header.column.getIsSorted()] ?? " ⬍"}
+                      </span>
+                    )}
+                  </div>
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody>
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 const MessageStats = () => {
   const [stats, setStats] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState("message-stats");
+  const [sorting, setSorting] = useState([]);
+  const [globalFilter, setGlobalFilter] = useState("");
+
+  const messageStatsColumns = useMemo(() => {
+    if (stats.length === 0) return [];
+
+    return Object.keys(stats[0]).map((key) => ({
+      accessorKey: key,
+      header: key,
+      cell: (info) => {
+        const value = info.getValue();
+        // Try to parse as number if it looks like a number
+        if (!isNaN(value) && value !== "") {
+          return parseInt(value) || 0;
+        }
+        return value;
+      },
+    }));
+  }, [stats]);
+
+  const upsellColumns = useMemo(
+    () => [
+      {
+        accessorKey: "User ID",
+        header: "User ID",
+      },
+      {
+        accessorKey: "Email",
+        header: "Email",
+      },
+      {
+        accessorKey: "Total Offers",
+        header: "Total Offers",
+        cell: (info) => parseInt(info.getValue()) || 0,
+      },
+      {
+        accessorKey: "Custom Upsells",
+        header: "Custom Upsells",
+        cell: (info) => parseInt(info.getValue()) || 0,
+      },
+      {
+        accessorKey: "Early Checkin",
+        header: "Early Checkin",
+        cell: (info) => parseInt(info.getValue()) || 0,
+      },
+      {
+        accessorKey: "Extra Nights",
+        header: "Extra Nights",
+        cell: (info) => parseInt(info.getValue()) || 0,
+      },
+      {
+        accessorKey: "Late Checkout",
+        header: "Late Checkout",
+        cell: (info) => parseInt(info.getValue()) || 0,
+      },
+      {
+        accessorKey: "Multiple Offers",
+        header: "Multiple Offers",
+        cell: (info) => parseInt(info.getValue()) || 0,
+      },
+      {
+        accessorKey: "Other Offers",
+        header: "Other Offers",
+        cell: (info) => parseInt(info.getValue()) || 0,
+      },
+    ],
+    []
+  );
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -54,22 +212,15 @@ const MessageStats = () => {
   const renderMessageStats = () => (
     <div className="message-stats">
       <h1>Message Statistics</h1>
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>{stats.length > 0 && Object.keys(stats[0]).map((header) => <th key={header}>{header}</th>)}</tr>
-          </thead>
-          <tbody>
-            {stats.map((row, index) => (
-              <tr key={index}>
-                {Object.values(row).map((cell, cellIndex) => (
-                  <td key={cellIndex}>{cell}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <DataTable
+        data={stats}
+        columns={messageStatsColumns}
+        sorting={sorting}
+        setSorting={setSorting}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+        showPmsFilter={true}
+      />
     </div>
   );
 
@@ -85,40 +236,15 @@ const MessageStats = () => {
         <div className="analytics-summary">
           <h2>Users with Low Offer Count</h2>
           <p>Number of users with less than 10 total offers: {usersWithLowOffers.length}</p>
-          <div className="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>User ID</th>
-                  <th>Email</th>
-                  <th>Total Offers</th>
-                  <th>Custom Upsells</th>
-                  <th>Early Checkin</th>
-                  <th>Extra Nights</th>
-                  <th>Late Checkout</th>
-                  <th>Multiple Offers</th>
-                  <th>Other Offers</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {usersWithLowOffers.map((user, index) => (
-                  <tr key={index}>
-                    <td>{user["User ID"] || "Unknown"}</td>
-                    <td>{user["Email"] || "Unknown"}</td>
-                    <td>{user["Total Offers"] || "0"}</td>
-                    <td>{user["Custom Upsells"] || "0"}</td>
-                    <td>{user["Early Checkin"] || "0"}</td>
-                    <td>{user["Extra Nights"] || "0"}</td>
-                    <td>{user["Late Checkout"] || "0"}</td>
-                    <td>{user["Multiple Offers"] || "0"}</td>
-                    <td>{user["Other Offers"] || "0"}</td>
-                    <td className="warning">Needs Attention</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <DataTable
+            data={usersWithLowOffers}
+            columns={upsellColumns}
+            sorting={sorting}
+            setSorting={setSorting}
+            globalFilter={globalFilter}
+            setGlobalFilter={setGlobalFilter}
+            showPmsFilter={true}
+          />
         </div>
       </div>
     );
