@@ -2,6 +2,8 @@ import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import { BestyPricingCalculator } from "./components/BFFCalc/BFFCalc";
+import { BestyPricingCalculatorExternal } from "./components/BFFCalc/BFFCalcExternal";
+
 import { BookingPage } from "./components/BookingPage/BookingPage";
 import { BookingPageConf } from "./components/BookingPageConf/BookingPage";
 import { NewFeatures } from "./components/NewFeature/NewFeatures";
@@ -28,6 +30,7 @@ function App() {
           <Route path="/conference" element={<BookingPageConf />} />
           <Route path="/report" element={<Report />} />
           <Route path="/bffcalc" element={<BestyPricingCalculator />} />
+          <Route path="/bffcalculator" element={<BestyPricingCalculatorExternal />} />
           <Route path="/message-stats" element={<MessageStats />} />
         </Routes>
       </div>
