@@ -5,13 +5,13 @@ import styles from "./BookingPage.module.css";
 export const BookingPage = () => {
   const [listings, setListings] = useState("");
   const [searchParams] = useSearchParams();
-  const showThanks = searchParams.get("thanks") == "true";
+  const showThanks = searchParams.get("thanks") === "true";
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     setListings(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     let hubspotLink = "";
@@ -20,10 +20,10 @@ export const BookingPage = () => {
 
     if (listingCount <= 8) {
       hubspotLink = "https://us06web.zoom.us/webinar/register/WN_lejjIQsUT1GIrFSt6WK0nQ#/registration";
-    } else if (listingCount <= 30) {
+    } else if (listingCount <= 39) {
       hubspotLink = "https://meetings.hubspot.com/glen-mcclintock/besty-ai-demo";
     } else if (listingCount <= 99) {
-      hubspotLink = "https://meetings.hubspot.com/glen-mcclintock/besty-ai-demo";
+      hubspotLink = "https://meetings.hubspot.com/edward206/besty-ai-demo";
     } else {
       hubspotLink = "https://meetings.hubspot.com/sam-dundas/besty-ai-demo";
     }
