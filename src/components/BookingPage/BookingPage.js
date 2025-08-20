@@ -20,7 +20,7 @@ export const BookingPage = () => {
 
     if (listingCount <= 8) {
       hubspotLink = "https://us06web.zoom.us/webinar/register/WN_lejjIQsUT1GIrFSt6WK0nQ#/registration";
-    } else if (listingCount <= 39) {
+    } else if (listingCount <= 29) {
       hubspotLink = "https://meetings.hubspot.com/glen-mcclintock/besty-ai-demo";
     } else if (listingCount <= 99) {
       hubspotLink = "https://meetings.hubspot.com/edward206/besty-ai-demo";
